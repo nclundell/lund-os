@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+
+type: dnf
+repos:
+  copr:
+    - avengemedia/danklinux
+    - avengemedia/dms
+    - yalter/niri
+install:
+  packages:
+    - breakpad
+    - cliphist
+    - danksearch
+    - dgop
+    - dms
+    - dms-greeter 
+    - ghostty
+    - matugen
+    - nautilus
+    - niri
+    - quickshell
+    - sushi

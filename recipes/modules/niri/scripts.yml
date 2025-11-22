@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/script-latest.json
+
+type: script
+snippets:
+  - 'systemctl --user add-wants niri.service dms.service'
