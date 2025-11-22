@@ -22,7 +22,6 @@ install:
     - lazygit
     - neovim
     - ripgrep
-    - skim
     - starship
     - stow
     - systemctl-tui
