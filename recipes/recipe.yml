@@ -13,7 +13,7 @@ image-version: latest
 # you can include multiple instances of the same module
 modules:
   - from-file: modules/niri/packages.yml
-  - from-file: modules/niri/systemd.yml
+  - from-file: modules/niri/services.yml
   - from-file: modules/niri/scripts.yml
 
   - type: signing
