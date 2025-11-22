@@ -4,8 +4,3 @@ type: systemd
 user:
   enabled:
     - dsearch
-    - greetd
-  disabled:
-    - gdm
-    - lightdm
-    - sddm
