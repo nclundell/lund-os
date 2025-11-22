@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+
+type: dnf
+repos:
+  copr:
+    - nclundell/fedora-extras
+install:
+  packages:
+    - atuin
+    - bat
+    - bottom
+    - eza
+    - fd-find
+    - fzf
+    - gh
+    - git
+    - git-delta
+    - glow
+    - gum
+    - jq
+    - lazydocker
+    - lazygit
+    - neovim
+    - ripgrep
+    - skim
+    - starship
+    - stow
+    - systemctl-tui
+    - tree-sitter-cli
+    - yazi
+    - zoxide

@@ -1,3 +1,11 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/modules/systemd-latest.json
 
 type: systemd
+user:
+  enabled:
+    - dsearch
+    - greetd
+  disabled:
+    - gdm
+    - lightdm
+    - sddm

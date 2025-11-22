@@ -16,7 +16,11 @@ install:
     - dms-greeter 
     - ghostty
     - matugen
+    - mpd
+    - mpv
+    - mpv-mpris
     - nautilus
+    - ncmpcpp
     - niri
     - quickshell
     - sushi
