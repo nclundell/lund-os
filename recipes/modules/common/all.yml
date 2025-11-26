@@ -1,10 +1,10 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
-  - from-file: cli.yml
-  - from-file: codecs.yml
-  - from-file: flatpaks.yml
-  - from-file: games.yml
-  - from-file: gui.yml
-  - from-file: icons.yml
-  - from-file: system.yml
+  - from-file: modules/common/cli.yml
+  - from-file: modules/common/codecs.yml
+  - from-file: modules/common/flatpaks.yml
+  - from-file: modules/common/games.yml
+  - from-file: modules/common/gui.yml
+  - from-file: modules/common/icons.yml
+  - from-file: modules/common/system.yml
