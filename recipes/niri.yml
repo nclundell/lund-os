@@ -17,4 +17,11 @@ modules:
   - from-file: modules/niri/services.yml
   - from-file: modules/niri/scripts.yml
 
+  - type: os-release
+    properties:
+      ID: lund-os
+      ID_LIKE: fedora
+      NAME: LundOS
+      PRETTY_NAME: LundOS
+
   - type: signing
