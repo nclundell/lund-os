@@ -9,7 +9,7 @@ configurations:
     repo:
       title: Flathub (system)
     install:
-      - com.usebottles.bottles       # Bottles
-      - io.mozilla.firefox           # Firefox
       - io.github.kolunmi.Bazaar     # Bazaar Store
+      - com.usebottles.bottles       # Bottles
+      - org.mozilla.firefox          # Firefox
       - io.github.flattool.Warehouse # Warehouse Flatpack Management 
