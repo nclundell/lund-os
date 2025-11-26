@@ -1,13 +1,13 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/default-flatpaks-latest.json
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/default-flatpaks-latest.json
 
 type: default-flatpaks
 configurations:
   - scope: user
     repo:
-    title: Flathub (user)
+      title: Flathub (user)
   - scope: system
     repo:
-    title: Flathub (system)
+      title: Flathub (system)
     install:
       - com.usebottles.bottles       # Bottles
       - io.mozilla.firefox           # Firefox
