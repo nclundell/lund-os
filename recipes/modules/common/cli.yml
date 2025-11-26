@@ -6,6 +6,7 @@ repos:
     - nclundell/fedora-extras
 install:
   packages:
+    - abcde
     - atuin
     - bat
     - bottom

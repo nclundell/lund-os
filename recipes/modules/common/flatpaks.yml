@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/default-flatpaks-latest.json
+
+type: default-flatpaks
+configurations:
+  - scope: user
+    repo:
+    title: Flathub (user)
+  - scope: system
+    repo:
+    title: Flathub (system)
+    install:
+      - com.usebottles.bottles       # Bottles
+      - io.mozilla.firefox           # Firefox
+      - io.github.kolunmi.Bazaar     # Bazaar Store
+      - io.github.flattool.Warehouse # Warehouse Flatpack Management 
