@@ -2,7 +2,8 @@
 
 type: dnf
 install:
-  - gamemode
-  - gamescope
-  - mangohud
-  - steam
+  packages:
+    - gamemode
+    - gamescope
+    - mangohud
+    - steam
