@@ -16,6 +16,11 @@ modules:
   - from-file: modules/niri.yml
   - from-file: modules/dms.yml
 
+  - type: gschema-overrides
+    include:
+      - zz1-common.gschema.override
+      - zz2-niri.gschema.override
+
   - type: os-release
     properties:
       ID: lund-os
