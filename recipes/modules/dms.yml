@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - avengemedia/danklinux
+        - avengemedia/dms
+    install:
+      packages:
+        - breakpad
+        - cliphist
+        - danksearch
+        - dgop
+        - dms
+        - dms-greeter 
+        - matugen
+        - quickshell
+
+  - type: systemd
+    user:
+      enabled:
+        - dsearch

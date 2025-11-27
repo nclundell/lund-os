@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - from-file: modules/dms.yml
+  - type: dnf
+    repos:
+      copr:
+        - avengemedia/danklinux
+        - avengemedia/dms
+        - yalter/niri
+    install:
+      packages:
+        - mpc
+        - mpv
+        - mpv-mpris
+        - nautilus
+        - ncmpcpp
+        - niri
+        - playerctl

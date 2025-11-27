@@ -13,9 +13,8 @@ image-version: latest
 modules:
   - from-file: modules/common/all.yml
 
-  - from-file: modules/niri/packages.yml
-  - from-file: modules/niri/services.yml
-  - from-file: modules/niri/scripts.yml
+  - from-file: modules/niri.yml
+  - from-file: modules/dms.yml
 
   - type: os-release
     properties:
