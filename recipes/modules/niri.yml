@@ -10,6 +10,7 @@ modules:
         - yalter/niri
     install:
       packages:
+        - foot
         - mpc
         - mpv
         - mpv-mpris
