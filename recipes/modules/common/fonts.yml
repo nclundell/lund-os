@@ -7,4 +7,10 @@ modules:
         - che/nerd-fonts
     install:
       packages:
+        - cascadia-code-fonts
+        - fira-code-fonts
+        - google-roboto-fonts
+        - jetbrains-mono-fonts
         - nerd-fonts
+        - source-foundry-hack-fonts
+
