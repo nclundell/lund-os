@@ -2,15 +2,18 @@
 
 modules:
   - type: dnf
-    repos:
-      copr:
-        - che/nerd-fonts
     install:
       packages:
-        - cascadia-code-fonts
-        - fira-code-fonts
         - google-roboto-fonts
-        - jetbrains-mono-fonts
-        - nerd-fonts
-        - source-foundry-hack-fonts
+          
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - AdwaitaMono
+        - CaskaydiaCove
+        - FiraCode
+        - Hack
+        - Inconsolata
+        - JetBrainsMono
+
 

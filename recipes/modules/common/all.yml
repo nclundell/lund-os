@@ -4,9 +4,9 @@ modules:
   - from-file: modules/common/cli.yml
   - from-file: modules/common/codecs.yml
   - from-file: modules/common/flatpaks.yml
-  # - from-file: modules/common/fonts.yml
+  - from-file: modules/common/fonts.yml
   - from-file: modules/common/games.yml
   - from-file: modules/common/gui.yml
   - from-file: modules/common/icons.yml
-  - from-file: modules/common/pronter.yml
+  - from-file: modules/common/printer.yml
   - from-file: modules/common/system.yml
