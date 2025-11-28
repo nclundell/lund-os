@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+
+type: dnf
+install:
+  packages:
+    - bluez-cups
+    - cups
+    - cups-browsed
+    - cups-filters
+    - foomatic
+    - foomatic-db
+    - gutenprint-cups

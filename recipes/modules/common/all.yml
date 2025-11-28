@@ -8,4 +8,5 @@ modules:
   - from-file: modules/common/games.yml
   - from-file: modules/common/gui.yml
   - from-file: modules/common/icons.yml
+  - from-file: modules/common/pronter.yml
   - from-file: modules/common/system.yml
