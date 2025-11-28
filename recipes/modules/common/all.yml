@@ -4,6 +4,7 @@ modules:
   - from-file: modules/common/cli.yml
   - from-file: modules/common/codecs.yml
   - from-file: modules/common/flatpaks.yml
+  - from-file: modules/common/fonts.yml
   - from-file: modules/common/games.yml
   - from-file: modules/common/gui.yml
   - from-file: modules/common/icons.yml
