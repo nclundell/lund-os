@@ -10,7 +10,7 @@ modules:
     fonts:
       nerd-fonts:
         - AdwaitaMono
-        - CaskaydiaCove
+        # - CaskaydiaCove
         - FiraCode
         - Hack
         - Inconsolata
