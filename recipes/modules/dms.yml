@@ -17,6 +17,12 @@ modules:
         - ghostty
         - matugen
         - quickshell
+    remove:
+      packages:
+        - alacritty
+        - fuzzel
+        - mako
+        - waybar
 
   - type: systemd
     user:

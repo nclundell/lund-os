@@ -5,12 +5,9 @@ modules:
   - type: dnf
     repos:
       copr:
-        - avengemedia/danklinux
-        - avengemedia/dms
         - yalter/niri
     install:
       packages:
-        - foot
         - mpc
         - mpv
         - mpv-mpris

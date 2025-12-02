@@ -23,9 +23,11 @@ modules:
 
   - type: os-release
     properties:
+      DEFAULT_HOSTNAME: lund-os
+      HOME_URL: https://github.com/nclundell/lund-os
       ID: lund-os
       ID_LIKE: fedora
-      NAME: LundOS
+      NAME: lund-os
       PRETTY_NAME: LundOS
 
   - type: signing
