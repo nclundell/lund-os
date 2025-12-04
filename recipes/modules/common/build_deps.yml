@@ -14,5 +14,6 @@ install:
     - libyaml-devel
     - libffi-devel
     - readline-devel
-    - gdbm-devel ncurses-devel
+    - gdbm-devel
+    - ncurses-devel
     - zlib-ng-compat-devel
