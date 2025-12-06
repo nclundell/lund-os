@@ -2,4 +2,4 @@
 
 modules:
   - from-file: modules/gnome/flatpaks.yml
-  - from-file: modules/gnome/packages.yml
+  # - from-file: modules/gnome/packages.yml
