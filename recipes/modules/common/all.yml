@@ -10,4 +10,4 @@ modules:
   - from-file: modules/common/gui.yml
   - from-file: modules/common/icons.yml
   - from-file: modules/common/printer.yml
-  - from-file: modules/common/system.yml
+  # - from-file: modules/common/system.yml
