@@ -5,6 +5,7 @@ install:
   packages:
     - autoconf
     - bzip2
+    - docker-buildx
     - gcc
     - make
     - patch
