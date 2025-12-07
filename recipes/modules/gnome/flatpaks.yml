@@ -3,11 +3,14 @@
 type: default-flatpaks
 configurations:
   - scope: user
+    notify: false
     repo:
       title: Flathub (user)
   - scope: system
+    notify: false
     repo:
       title: Flathub (system)
+
     install:
       - io.github.kolunmi.Bazaar             # Bazaar Store
        # - io.github.celluloid_player.Celluloid # Celluloid Video Player
