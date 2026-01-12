@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    install:
+      packages:
+        - gnome-menus
+        - gnome-shell-extensions
+
+  - type: gnome-extensions
+    install:
+      - 615  # AppIndicators/System Tray
+      - 3628 # Arc Menu
+      - 3193 # Blur My Shell
+      - 1160 # Dash to Panel
+      - 3843 # Just Perfection
+      - 6099 # PaperWM
+      - 5090 # Space Bar
+      - 5470 # Weather O'Clock
+      - 4228 # Wireless HID
+
