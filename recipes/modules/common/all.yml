@@ -2,7 +2,6 @@
 
 modules:
   - from-file: modules/common/build_deps.yml
-  - from-file: modules/common/cli.yml
   - from-file: modules/common/codecs.yml
   - from-file: modules/common/flatpaks.yml
   - from-file: modules/common/fonts.yml

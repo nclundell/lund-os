@@ -3,4 +3,5 @@
 type: dnf
 install:
   packages:
-    - power-profiles-daemon
+    - tuned
+    - tuned-ppd
