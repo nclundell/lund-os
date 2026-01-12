@@ -1,21 +1,16 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
 name: lund-os
-# description will be included in the image's metadata
 description: This is my personal OS image.
-
-# the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
   - from-file: modules/common/all.yml
   - from-file: modules/gnome/all.yml
-
   - from-file: modules/niri.yml
   # - from-file: modules/dms.yml
+
+  - type: brew
 
   - type: os-release
     properties:
