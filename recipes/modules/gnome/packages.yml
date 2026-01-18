@@ -1,6 +1,12 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
-#
-# type: dnf
-# install:
-#   packages:
-#     -
+
+type: dnf
+install:
+  packages:
+    - nautilus
+    - sushi
+remove:
+  packages:
+    - firefox
+    - firefox-langpacks
+
