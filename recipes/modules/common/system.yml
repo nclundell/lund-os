@@ -1,7 +1,13 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
-type: dnf
-install:
-  packages:
-    - tuned
-    - tuned-ppd
+modules:
+  - type: dnf
+    install:
+      packages:
+        - tuned
+        - tuned-ppd
+
+  - type: systemd
+    user:
+      enabled:
+        - mpd.service
