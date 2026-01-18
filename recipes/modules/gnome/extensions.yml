@@ -5,7 +5,6 @@ modules:
     install:
       packages:
         - gnome-menus
-        - gnome-shell-extensions
 
   - type: gnome-extensions
     install:
