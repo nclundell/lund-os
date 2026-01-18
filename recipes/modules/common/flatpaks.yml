@@ -13,5 +13,6 @@ configurations:
     install:
       - io.github.kolunmi.Bazaar     # Bazaar Store
       - com.usebottles.bottles       # Bottles
+      - com.brave.Browser            # Brave
       - org.mozilla.firefox          # Firefox
       - io.github.flattool.Warehouse # Warehouse Flatpack Management 

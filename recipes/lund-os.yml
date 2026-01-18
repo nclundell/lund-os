@@ -6,9 +6,17 @@ image-version: latest
 
 modules:
   - from-file: modules/common/all.yml
-  - from-file: modules/gnome/all.yml
+  - from-file: modules/gnome/extensions.yml
+  - from-file: modules/gnome/flatpaks.yml
+  - from-file: modules/gnome/packages/yml
   - from-file: modules/niri.yml
-  # - from-file: modules/dms.yml
+
+  - type: dnf
+    install:
+      packages:
+        - git
+        - git-delta
+        - stow
 
   - type: brew
 
