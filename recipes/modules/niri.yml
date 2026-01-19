@@ -1,21 +1,19 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
 
-modules:
-  - from-file: modules/dms.yml
-  - type: dnf
-    repos:
-      copr:
-        - errornointernet/walker
-        - yalter/niri
-    install:
-      packages:
-        - elephant
-        - mpc
-        - mpv
-        - mpv-mpris
-        - nautilus
-        - ncmpcpp
-        - niri
-        - playerctl
-        - walker
-        - waybar
+type: dnf
+repos:
+  copr:
+    - errornointernet/walker
+    - yalter/niri
+install:
+  packages:
+    - elephant
+    - mpc
+    - mpv
+    - mpv-mpris
+    - nautilus
+    - ncmpcpp
+    - niri
+    - playerctl
+    - walker
+    - waybar
