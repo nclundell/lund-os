@@ -1,9 +1,0 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
-
-type: dnf
-install:
-  packages:
-    - adwaita-icon-theme
-    - breeze-icon-theme
-    - papirus-icon-theme
-    - yaru-icon-theme

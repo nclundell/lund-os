@@ -15,4 +15,6 @@ configurations:
       - com.usebottles.bottles       # Bottles
       - com.brave.Browser            # Brave
       - org.mozilla.firefox          # Firefox
+      - app.grayjay.Grayjay          # Grayjay
+      - com.vysp3r.ProtonPlus        # ProtonPlus
       - io.github.flattool.Warehouse # Warehouse Flatpack Management 

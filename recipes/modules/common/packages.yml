@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+
+type: dnf
+install:
+  packages:
+    # Build Deps
+    - autoconf
+    - bzip2
+    - docker-buildx
+    - gcc
+    - make
+    - patch
+    - perl-FindBin
+    - rust
+    - openssl-devel
+    - libyaml-devel
+    - libffi-devel
+    - readline-devel
+    - gdbm-devel
+    - ncurses-devel
+    - zlib-ng-compat-devel
+    # Codecs
+    - flac
+    - lame
+    - opus-tools
+    - vorbis-tools
+    # Gaming
+    - gamemode
+    - gamescope
+    - mangohud
+    - steam
+    # Icons
+    - adwaita-icon-theme
+    - breeze-icon-theme
+    - papirus-icon-theme
+    - yaru-icon-theme
+    # Printer
+    - bluez-cups
+    - cups
+    - cups-browsed
+    - cups-filters
+    - foomatic
+    - foomatic-db
+    - gutenprint-cups
+    # System Modules
+    - tuned
+    - tuned-ppd
+remove:
+  packages:
+    - firefox
+    - firefox-langpacks
