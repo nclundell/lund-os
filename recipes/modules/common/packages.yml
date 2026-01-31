@@ -22,11 +22,6 @@ install:
     - gdbm-devel
     - ncurses-devel
     - zlib-ng-compat-devel
-    # Codecs
-    - flac
-    - lame
-    - opus-tools
-    - vorbis-tools
     # Gaming
     - gamemode
     - gamescope
@@ -37,6 +32,13 @@ install:
     - breeze-icon-theme
     - papirus-icon-theme
     - yaru-icon-theme
+    # Media
+    - abcde
+    - flac
+    - lame
+    - mpd
+    - opus-tools
+    - vorbis-tools
     # Printer
     - bluez-cups
     - cups

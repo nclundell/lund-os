@@ -17,6 +17,6 @@ install:
     - material-symbols-fonts
     - matugen
     - niri
-    - qt6-multimedia
+    - qt6-qtmultimedia
     - quickshell
     - wl-clipboard
