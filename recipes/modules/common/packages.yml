@@ -8,10 +8,13 @@ install:
     - bzip2
     - docker-buildx
     - gcc
+    - git
+    - git-delta
     - make
     - patch
     - perl-FindBin
     - rust
+    - stow
     - openssl-devel
     - libyaml-devel
     - libffi-devel

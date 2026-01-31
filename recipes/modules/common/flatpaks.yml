@@ -11,10 +11,9 @@ configurations:
     repo:
       title: Flathub (system)
     install:
-      - io.github.kolunmi.Bazaar     # Bazaar Store
       - com.usebottles.bottles       # Bottles
-      - com.brave.Browser            # Brave
-      - org.mozilla.firefox          # Firefox
+      - com.brave.Browser            # Brave Browser
+      - com.github.tchx84.Flatseal   # Flatseal
+      - one.ablaze.floorp            # Floorp Browser
       - app.grayjay.Grayjay          # Grayjay
       - com.vysp3r.ProtonPlus        # ProtonPlus
-      - io.github.flattool.Warehouse # Warehouse Flatpack Management 

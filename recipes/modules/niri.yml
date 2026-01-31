@@ -3,17 +3,20 @@
 type: dnf
 repos:
   copr:
-    - errornointernet/walker
+    - avengemedia/dms
+    - avengemedia/danklinux
     - yalter/niri
 install:
   packages:
-    - elephant
-    - mpc
-    - mpv
-    - mpv-mpris
-    - nautilus
-    - ncmpcpp
+    - cava
+    - cliphist
+    - dgop
+    - dms
+    - danksearch
+    - ghostty
+    - material-symbols-fonts
+    - matugen
     - niri
-    - playerctl
-    - walker
-    - waybar
+    - qt6-multimedia
+    - quickshell
+    - wl-clipboard

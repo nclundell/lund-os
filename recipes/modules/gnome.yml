@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    install:
+      packages:
+        - gnome-menus
+        - lm_sensors
+        - sushi
+
+  - type: gnome-extensions
+    install:
+      - 615  # AppIndicators/System Tray
+      - 3628 # Arc Menu
+      - 3193 # Blur My Shell
+      - 1160 # Dash to Panel
+      - 3843 # Just Perfection
+      - 6099 # PaperWM
+      - 1460 # Vitals
+      - 5470 # Weather O'Clock
+      - 4228 # Wireless HID
+
+  - type: default-flatpaks
+    configurations:
+      - scope: user
+        notify: false
+        repo:
+          title: Flathub (user)
+      - scope: system
+        notify: false
+        repo:
+          title: Flathub (system)
+        install:
+          # Official Apps
+          - org.gnome.Logs                       # Log Viewer
+          - org.gnome.Loupe                      # Image Viewer
+          - org.gnome.Papers                     # Papers Document Viewer
+          - org.gnome.SimpleScan                 # Scanner
+          - org.gnome.Weather                    # Weather
+          # Unofficial Apps
+          - com.mattjakeman.ExtensionManager     # Extension Manager
+          - io.github.celluloid_player.Celluloid # Celluloid Video Player
+          - page.tesk.Refine                     # Refine
+      

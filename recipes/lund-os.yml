@@ -8,17 +8,8 @@ modules:
   - from-file: modules/common/flatpaks.yml
   - from-file: modules/common/fonts.yml
   - from-file: modules/common/packages.yml
-  - from-file: modules/gnome/extensions.yml
-  - from-file: modules/gnome/flatpaks.yml
-  - from-file: modules/gnome/packages.yml
+  - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
-
-  - type: dnf
-    install:
-      packages:
-        - git
-        - git-delta
-        - stow
 
   - type: brew
 
