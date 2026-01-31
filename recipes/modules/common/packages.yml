@@ -36,7 +36,9 @@ install:
     - abcde
     - flac
     - lame
-    - mpd
+    - libmpd
+    - libmpdclient
+    - ncmpcpp
     - opus-tools
     - vorbis-tools
     # Printer
