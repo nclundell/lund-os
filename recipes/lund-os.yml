@@ -13,17 +13,13 @@ modules:
 
   - type: brew
 
-  - type: script
-    scripts:
-      - asus-quirk.sh
-
   - type: os-release
     properties:
-      DEFAULT_HOSTNAME: lund-os
-      HOME_URL: https://github.com/nclundell/lund-os
+      NAME: lund-os
       ID: lund-os
       ID_LIKE: fedora
-      NAME: lund-os
-      PRETTY_NAME: LundOS
+      PRETTY_NAME: LundOS (Custom Fedora Atomic)
+      DEFAULT_HOSTNAME: lund-os
+      HOME_URL: https://github.com/nclundell/lund-os
 
   - type: signing
