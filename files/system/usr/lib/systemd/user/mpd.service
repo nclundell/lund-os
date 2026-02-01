@@ -1,0 +1,8 @@
+[Unit]
+Description=Music Player Daemon
+After=network.target sound.target pipewire.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mpd --no-daemon
+Restart=on-failure

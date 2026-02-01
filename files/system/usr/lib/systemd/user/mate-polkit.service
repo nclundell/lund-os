@@ -1,0 +1,10 @@
+[Unit]
+Description=MATE Polkit Authentication Agent
+PartOf=niri.service
+After=niri.service
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/polkit-mate-authentication-agent-1
+Restart=on-failure
+RestartSec=1
