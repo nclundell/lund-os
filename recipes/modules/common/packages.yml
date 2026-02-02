@@ -1,6 +1,9 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
 
 type: dnf
+repos:
+  copr:
+    - nclundell/fedora-extras
 install:
   packages:
     # Build Deps
@@ -41,7 +44,6 @@ install:
     - libdvdcss
     - libmpd
     - libmpdclient
-    - makemkv
     - ncmpcpp
     - opus-tools
     - vorbis-tools
@@ -60,3 +62,7 @@ remove:
   packages:
     - firefox
     - firefox-langpacks
+replace:
+  - from-repo: copr:copr.fedorainfracloud.org:nclundell:fedora-extras
+    packages:
+      - makemkv
