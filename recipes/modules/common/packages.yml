@@ -44,6 +44,7 @@ install:
     - libdvdcss
     - libmpd
     - libmpdclient
+    - makemkv
     - ncmpcpp
     - opus-tools
     - vorbis-tools
