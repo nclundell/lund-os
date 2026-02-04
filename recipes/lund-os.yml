@@ -6,10 +6,15 @@ image-version: latest
 
 modules:
   - from-file: modules/common/flatpaks.yml
+    source: local
   - from-file: modules/common/fonts.yml
+    source: local
   - from-file: modules/common/packages.yml
+    source: local
   - from-file: modules/gnome.yml
+    source: local
   - from-file: modules/niri.yml
+    source: local
   
   - type: files
     files:
