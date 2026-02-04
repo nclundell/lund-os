@@ -14,5 +14,6 @@ configurations:
       - com.usebottles.bottles       # Bottles
       - io.github.diegopvlk.Cine     # Cine
       - com.brave.Browser            # Brave Browser
+      - com.ranfdev.DistroShelf      # DistroShelf
       - com.github.tchx84.Flatseal   # Flatseal
       - one.ablaze.floorp            # Floorp Browser
