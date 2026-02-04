@@ -12,6 +12,9 @@ modules:
   - from-file: modules/niri.yml
   
   - type: files
+    files:
+      - source: systemd
+        destination: /usr/lib/systemd
 
   - type: os-release
     properties:
