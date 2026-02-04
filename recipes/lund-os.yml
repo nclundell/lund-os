@@ -5,16 +5,21 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
-  - from-file: modules/common/flatpaks.yml
+  - type: default-flatpaks
     source: local
-  - from-file: modules/common/fonts.yml
+    from-file: modules/common/flatpaks.yml
+  - type: fonts
     source: local
-  - from-file: modules/common/packages.yml
+    from-file: modules/common/fonts.yml
+  - type: dnf
     source: local
-  - from-file: modules/gnome.yml
+    from-file: modules/common/packages.yml
+  - type: module-list
     source: local
-  - from-file: modules/niri.yml
+    from-file: modules/gnome.yml
+  - type: dnf
     source: local
+    from-file: modules/niri.yml
   
   - type: files
     files:
