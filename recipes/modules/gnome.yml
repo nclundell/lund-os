@@ -32,13 +32,11 @@ modules:
           title: Flathub (system)
         install:
           # Official Apps
-          - org.gnome.Logs                       # Log Viewer
           - org.gnome.Loupe                      # Image Viewer
           - org.gnome.Papers                     # Papers Document Viewer
           - org.gnome.SimpleScan                 # Scanner
           - org.gnome.Weather                    # Weather
           # Unofficial Apps
           - com.mattjakeman.ExtensionManager     # Extension Manager
-          - io.github.celluloid_player.Celluloid # Celluloid Video Player
-          - page.tesk.Refine                     # Refine
+          - org.altlinux.Tuner                   # Tuner
       

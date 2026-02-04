@@ -10,8 +10,8 @@ modules:
   - from-file: modules/common/packages.yml
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
-
-  - type: brew
+  
+  - type: files
 
   - type: os-release
     properties:

@@ -2,53 +2,22 @@
 
 type: dnf
 repos:
-  copr:
-    - nclundell/fedora-extras
 install:
+  nonfree: rpmfusion
   packages:
-    # Build Deps
-    - autoconf
-    - bzip2
-    - docker-buildx
-    - gcc
-    - git
-    - git-delta
-    - make
-    - patch
-    - perl-FindBin
-    - rust
-    - stow
-    - openssl-devel
-    - libyaml-devel
-    - libffi-devel
-    - readline-devel
-    - gdbm-devel
-    - ncurses-devel
-    - zlib-ng-compat-devel
-    # Gaming
-    - gamemode
-    - gamescope
-    - mangohud
-    - steam
     # Icons
     - adwaita-icon-theme
     - breeze-icon-theme
     - papirus-icon-theme
     - yaru-icon-theme
     # Media
-    - abcde
     - flac
-    - HandBrake-gui
-    - HandBrake-cli
     - lame
-    - libdvdcss
-    - libmpd
-    - libmpdclient
-    - makemkv
-    - ncmpcpp
+    - mpd
     - opus-tools
     - vorbis-tools
     # Printer
+    - avahi
     - bluez-cups
     - cups
     - cups-browsed
@@ -56,6 +25,7 @@ install:
     - foomatic
     - foomatic-db
     - gutenprint-cups
+    - nss-mdns
     # System Modules
     - tuned
     - tuned-ppd
@@ -63,7 +33,3 @@ remove:
   packages:
     - firefox
     - firefox-langpacks
-replace:
-  - from-repo: copr:copr.fedorainfracloud.org:nclundell:fedora-extras
-    packages:
-      - makemkv

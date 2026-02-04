@@ -12,8 +12,7 @@ configurations:
       title: Flathub (system)
     install:
       - com.usebottles.bottles       # Bottles
+      - io.github.diegopvlk.Cine     # Cine
       - com.brave.Browser            # Brave Browser
       - com.github.tchx84.Flatseal   # Flatseal
       - one.ablaze.floorp            # Floorp Browser
-      - app.grayjay.Grayjay          # Grayjay
-      - com.vysp3r.ProtonPlus        # ProtonPlus
