@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-v1.json
 
 type: dnf
-repos:
-  - rpmfusion: nonfree
 install:
   packages:
     # Icons
@@ -13,7 +11,6 @@ install:
     # Media
     - flac
     - lame
-    - mpd
     - opus-tools
     - vorbis-tools
     # Printer
