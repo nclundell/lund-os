@@ -3,6 +3,10 @@
 type: dnf
 install:
   packages:
+    # Base Tools
+    - git
+    - neovim
+    - stow
     # Icons
     - adwaita-icon-theme
     - breeze-icon-theme
