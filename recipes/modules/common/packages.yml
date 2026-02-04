@@ -2,8 +2,8 @@
 
 type: dnf
 repos:
+  - rpmfusion: nonfree
 install:
-  nonfree: rpmfusion
   packages:
     # Icons
     - adwaita-icon-theme
