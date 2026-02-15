@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-# Update system
-sudo pacman -Syu --noconfirm
+# Install paru (AUR helper) if not already installed
+if ! command -v paru >/dev/null 2>&1; then
+  bash /usr/etc/distrobox/paru-installer.sh
+fi
 
-# Core packages for development and CLI tools
+# Core packages for development, CLI tools, and abcde dependencies
 core_packages=(
+    abcde
+    abcde-musicbrainz-tool
     atuin
     base-devel
     bash-completion
@@ -13,23 +17,32 @@ core_packages=(
     bat-extras
     bottom
     cabextract
+    cdparanoia
+    cdrtools
     curl
     direnv
     eza
+    eye-d3
     fd
+    flac
     fzf
     git
     git-delta
     github-cli
     glow
+    glyr
+    id3
+    id3v2
     jq
     just
+    lame
     lazydocker
     lazygit
     libffi
     libyaml
     man-db
     man-pages
+    mkcue
     mpd
     neovim
     openssh
@@ -63,8 +76,7 @@ core_packages=(
     zoxide
 )
 
-sudo pacman -S --noconfirm --needed "${core_packages[@]}"
+# Update system and install core packages
+paru -Syu --noconfirm --needed "${core_packages[@]}"
 
-distrobox-export --app mpd
-
-
+distrobox-export --bin mpd
