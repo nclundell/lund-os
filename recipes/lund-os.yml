@@ -15,6 +15,11 @@ modules:
     files:
       - source: systemd
         destination: /usr/lib/systemd
+      - source: distrobox
+        destination: /usr/etc/distrobox
+      - source: ghostty
+        destination: /usr/etc/ghostty
+
 
   - type: os-release
     properties:
