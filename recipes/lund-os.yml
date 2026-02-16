@@ -18,7 +18,7 @@ modules:
         destination: /usr/lib/systemd
       - source: distrobox
         destination: /usr/etc/distrobox
-      - source: files/niri
+      - source: niri
         destination: /usr/share/niri
 
   - type: os-release
