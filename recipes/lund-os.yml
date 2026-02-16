@@ -18,8 +18,6 @@ modules:
         destination: /usr/lib/systemd
       - source: distrobox
         destination: /usr/etc/distrobox
-      - source: ghostty
-        destination: /usr/etc/ghostty
       - source: files/niri
         destination: /usr/share/niri
 
