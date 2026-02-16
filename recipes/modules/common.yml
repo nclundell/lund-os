@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    install:
+      packages:
+        # Base Tools
+        - git
+        - stow
+        # Fonts
+        - google-roboto-fonts
+        # Icons
+        - adwaita-icon-theme
+        - breeze-icon-theme
+        - papirus-icon-theme
+        - yaru-icon-theme
+        # Printer
+        - avahi
+        - bluez-cups
+        - cups
+        - cups-browsed
+        - cups-filters
+        - foomatic
+        - foomatic-db
+        - gutenprint-cups
+        - nss-mdns
+        # System Modules
+        - tuned
+        - tuned-ppd
+    remove:
+      packages:
+        - firefox
+        - firefox-langpacks
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - AdwaitaMono
+        # - CaskaydiaCove
+        - FiraCode
+        - Hack
+        - Inconsolata
+        - JetBrainsMono
+
+  - type: default-flatpaks
+    configurations:
+      - scope: user
+        notify: false
+        repo:
+          title: Flathub (user)
+      - scope: system
+        notify: false
+        repo:
+          title: Flathub (system)
+        install:
+          - com.usebottles.bottles       # Bottles
+          - io.github.diegopvlk.Cine     # Cine
+          - com.brave.Browser            # Brave Browser
+          - com.ranfdev.DistroShelf      # DistroShelf
+          - com.github.tchx84.Flatseal   # Flatseal
+          - one.ablaze.floorp            # Floorp Browser

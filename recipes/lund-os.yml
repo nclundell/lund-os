@@ -5,11 +5,12 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
-  - from-file: modules/common/flatpaks.yml
-  - from-file: modules/common/fonts.yml
-  - from-file: modules/common/packages.yml
+  - from-file: modules/common.yml
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
+
+  - type: justfiles
+    install: true
   
   - type: files
     files:
@@ -19,7 +20,8 @@ modules:
         destination: /usr/etc/distrobox
       - source: ghostty
         destination: /usr/etc/ghostty
-
+      - source: files/niri
+        destination: /usr/share/niri
 
   - type: os-release
     properties:
