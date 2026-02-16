@@ -10,8 +10,14 @@ fi
 media_packages=(
     base-devel
     git
+    gst-libav
+    gst-plugins-bad
+    gst-plugins-base
+    gst-plugins-good
+    gst-plugins-ugly
     handbrake
     intel-media-driver
+    libdvdcss
     libva-intel-driver
     libva-mesa-driver
     libva-utils
