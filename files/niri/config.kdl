@@ -1,0 +1,269 @@
+// Niri system-wide configuration (merged)
+// To override, copy this file to ~/.config/niri/config.kdl and edit as needed.
+// Each section is clearly marked for convenience.
+
+// =========================
+// Environment Variables
+// =========================
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  TERMINAL "ghostty"
+}
+
+// =========================
+// Cursor Settings
+// =========================
+cursor {
+  xcursor-theme "Adwaita"
+  xcursor-size 24
+}
+
+// =========================
+// Gestures
+// =========================
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+// =========================
+// Keybinds
+// =========================
+binds {
+  // === System & Overview ===
+  Mod+Tab         repeat=false { toggle-overview; }
+  Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
+
+  // === Application Launchers ===
+  Mod+T hotkey-overlay-title="Open Terminal"        { spawn "ghostty"; }
+
+  Mod+Space hotkey-overlay-title="Application Launcher" {
+      spawn "dms" "ipc" "call" "spotlight" "toggle";
+  }
+  Mod+M hotkey-overlay-title="Task Manager" {
+      spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
+  }
+  Mod+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+  Mod+Comma hotkey-overlay-title="Settings" {
+      spawn "dms" "ipc" "call" "settings" "focusOrToggle";
+  }
+  Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+      spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+  }
+  Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+  Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+
+  // === Auio Controls ===
+  XF86AudioRaiseVolume allow-when-locked=true {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0";
+  }
+  XF86AudioLowerVolume allow-when-locked=true {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+  }
+  XF86AudioMute allow-when-locked=true {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+  }
+  XF86AudioMicMute allow-when-locked=true {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+  }
+
+  // === Brightness Controls ===
+  XF86MonBrightnessUp allow-when-locked=true {
+     spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+  }
+  XF86MonBrightnessDown allow-when-locked=true {
+     spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+  }
+
+  // === Media Controls ===
+  XF86AudioPause allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPlay allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPrev allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "previous";
+  }
+  XF86AudioNext allow-when-locked=true {
+      spawn "dms" "ipc" "call" "mpris" "next";
+  }
+
+  // === Window Management ===
+  Mod+Q repeat=false { close-window; }
+  // Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+Shift+T { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  // === Focus Navigation ===
+  Mod+Home  { focus-column-first; }
+  Mod+End   { focus-column-last; }
+  Mod+H     { focus-column-left; }
+  Mod+J     { focus-window-or-workspace-down; }
+  Mod+K     { focus-window-or-workspace-up; }
+  Mod+L     { focus-column-right; }
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
+  Mod+Right { focus-column-right; }
+
+  // === Window Movement ===
+  Mod+Ctrl+J      { move-column-to-workspace-down; }
+  Mod+Ctrl+K      { move-column-to-workspace-up; }
+  Mod+Shift+Home  { move-column-to-first; }
+  Mod+Shift+End   { move-column-to-last; }
+  Mod+Shift+H     { move-column-left; }
+  Mod+Shift+J     { move-window-down; }
+  Mod+Shift+K     { move-window-up; }
+  Mod+Shift+L     { move-column-right; }
+  Mod+Shift+Left  { move-column-left; }
+  Mod+Shift+Down  { move-window-down; }
+  Mod+Shift+Up    { move-window-up; }
+  Mod+Shift+Right { move-column-right; }
+
+  // === Mouse Wheel Navigation ===
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight      { focus-column-right; }
+  Mod+WheelScrollLeft       { focus-column-left; }
+  Mod+Ctrl+WheelScrollRight { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+  // === Sizing & Layout ===
+  Mod+R { switch-preset-column-width; }
+  Mod+Alt+R { switch-preset-window-height; }
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+  Mod+Alt+Minus { set-window-height "-10%"; }
+  Mod+Alt+Equal { set-window-height "+10%"; }
+}
+
+// =========================
+// Layer Rules
+// =========================
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+
+// =========================
+// Layout
+// =========================
+layout {
+  gaps 10
+
+  background-color "transparent"
+
+  center-focused-column "always"
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.66667
+    proportion 1.0
+  }
+
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.66667
+    proportion 1.0
+  }
+
+  default-column-width { proportion 0.66667; }
+
+  border {
+    off
+  }
+
+  focus-ring {
+    off
+  }
+
+  shadow {
+    softness 30
+    spread 5
+    offset x=0 y=5
+    color "#0007"
+  }
+}
+
+// =========================
+// Monitors
+// =========================
+// No explicit outputs set: Niri will use all available monitors by default.
+// To customize, add output blocks as needed.
+
+// =========================
+// Screenshots
+// =========================
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+binds {
+  Mod+P { screenshot; }
+  Mod+Alt+P { screenshot-window; }
+  Mod+Shift+P { screenshot-screen; }
+}
+
+// =========================
+// Window Rules
+// =========================
+/*======== General Rules ========*/
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.9
+}
+
+/*======== Program Rules ========*/
+window-rule {
+    match title="polkit-auth-popup"
+    default-column-width { fixed 600; }
+    default-window-height { fixed 250; }
+    open-floating true
+    open-focused true
+    
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
+    match app-id=r#"^steam$"#
+    match app-id=r#"^xdg-desktop-portal$"#
+    match app-id="zoom"
+    open-floating true
+}
+
+window-rule {
+    match app-id="imv"
+    open-floating true
+    default-column-width {} 
+    default-window-height {}
+    draw-border-with-background true
+}
+
+window-rule {
+    match app-id=r#"^gnome-control-center$"#
+    match app-id=r#"^pavucontrol$"#
+    match app-id=r#"^nm-connection-editor$"#
+    default-column-width { proportion 0.5; }
+    open-floating false
+}
+
