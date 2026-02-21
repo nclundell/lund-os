@@ -21,8 +21,6 @@ media_packages=(
     libva-intel-driver
     libva-mesa-driver
     libva-utils
-    mesa
-    mesa-vdpau
     mkvtoolnix-cli
     mkvtoolnix-gui
 )

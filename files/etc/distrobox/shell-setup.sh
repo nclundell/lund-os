@@ -9,7 +9,7 @@ fi
 # Core packages for development, CLI tools, and abcde dependencies
 core_packages=(
     abcde
-    abcde-musicbrainz-tool
+    abcde-musicbrainz-meta
     atuin
     base-devel
     bash-completion
@@ -21,9 +21,8 @@ core_packages=(
     cdrtools
     curl
     eza
-    eye-d3
     fd
-    ffmpeg         # Added for ncmpcpp album art support
+    ffmpeg
     flac
     fzf
     git
@@ -31,9 +30,8 @@ core_packages=(
     github-cli
     glow
     glyr
-    id3
     id3v2
-    imagemagick    # Added for ncmpcpp image conversion
+    imagemagick
     jq
     just
     lame
@@ -49,9 +47,9 @@ core_packages=(
     neovim
     openssh
     openssl
+    p7zip
     pacman-contrib
     pandoc
-    p7zip
     poppler
     resvg
     ripgrep
@@ -67,7 +65,7 @@ core_packages=(
     unace
     unrar
     unzip
-    w3m            # Added for ncmpcpp terminal image previews
+    w3m
     wget
     xdg-user-dirs
     xdg-utils
