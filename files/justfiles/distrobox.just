@@ -1,9 +1,26 @@
-setup target:
-  # Create distrobox and run setup: just setup shell|gaming|media
-  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name {{ target | capitalize }}
-  @distrobox enter --name {{ target | capitalize }} -- bash -c 'bash /usr/etc/distrobox/{{ target }}-setup.sh; exit'
+setup-media:
+  # Create distrobox and run media setup
+  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Media
+  @distrobox enter --name Media -- bash -c 'bash /usr/etc/distrobox/media-setup.sh; exit'
 
-enter target:
-  # Enter distrobox: just enter shell|gaming|media
-  @distrobox enter --name {{ target | capitalize }}
+setup-gaming:
+  # Create distrobox and run gaming setup
+  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Gaming
+  @distrobox enter --name Gaming -- bash -c 'bash /usr/etc/distrobox/gaming-setup.sh; exit'
 
+setup-shell:
+  # Create distrobox and run shell setup
+  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Shell
+  @distrobox enter --name Shell -- bash -c 'bash /usr/etc/distrobox/shell-setup.sh; exit'
+
+enter-media:
+  # Enter media distrobox
+  @distrobox enter --name Media
+
+enter-gaming:
+  # Enter gaming distrobox
+  @distrobox enter --name Gaming
+
+enter-shell:
+  # Enter shell distrobox
+  @distrobox enter --name Shell
