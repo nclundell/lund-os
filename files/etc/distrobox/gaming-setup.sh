@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Install paru (AUR helper) if not already installed
-if ! command -v paru >/dev/null 2>&1; then
-  bash /usr/etc/distrobox/paru-installer.sh
-fi
-
 # Core packages (pacman)
 core_packages=(
   gamemode

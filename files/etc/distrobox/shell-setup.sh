@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Install paru (AUR helper) if not already installed
-if ! command -v paru >/dev/null 2>&1; then
-  bash /usr/etc/distrobox/paru-installer.sh
-fi
-
 # Core packages for development, CLI tools, and abcde dependencies
 core_packages=(
     abcde
@@ -81,24 +76,24 @@ core_packages=(
 # Update system and install core packages
 paru -Syu --noconfirm --needed "${core_packages[@]}"
 
-distrobox-export --bin abcde
-distrobox-export --bin atuin
-distrobox-export --bin bat
-distrobox-export --bin bottom
-distrobox-export --bin eza
-distrobox-export --bin fd
-distrobox-export --bin fzf
-distrobox-export --bin jq
-distrobox-export --bin just
-distrobox-export --bin lazydocker
-distrobox-export --bin lazygit
-distrobox-export --bin mpd
-distrobox-export --bin ncmpcpp
-distrobox-export --bin neovim
-distrobox-export --bin ripgrep
-distrobox-export --bin starship
-distrobox-export --bin tmux
-distrobox-export --bin yazi
-distrobox-export --bin yt-dlp
-distrobox-export --bin zellij
-distrobox-export --bin zoxide
+distrobox-export --bin /usr/bin/abcde
+distrobox-export --bin /usr/bin/atuin
+distrobox-export --bin /usr/bin/bat
+distrobox-export --bin /usr/bin/btm
+distrobox-export --bin /usr/bin/eza
+distrobox-export --bin /usr/bin/fd
+distrobox-export --bin /usr/bin/fzf
+distrobox-export --bin /usr/bin/jq
+distrobox-export --bin /usr/bin/just
+distrobox-export --bin /usr/bin/lazydocker
+distrobox-export --bin /usr/bin/lazygit
+distrobox-export --bin /usr/bin/mpd
+distrobox-export --bin /usr/bin/ncmpcpp
+distrobox-export --bin /usr/bin/nvim
+distrobox-export --bin /usr/bin/rg
+distrobox-export --bin /usr/bin/starship
+distrobox-export --bin /usr/bin/tmux
+distrobox-export --bin /usr/bin/yazi
+distrobox-export --bin /usr/bin/yt-dlp
+distrobox-export --bin /usr/bin/zellij
+distrobox-export --bin /usr/bin/zoxide
