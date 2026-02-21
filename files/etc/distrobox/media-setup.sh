@@ -32,3 +32,7 @@ paru -Syu --noconfirm --needed "${media_packages[@]}"
 
 # Install MakeMKV 1.17.7
 bash /usr/etc/distrobox/makemkv-install.sh
+
+distrobox-export --app makemkv
+distrobox-export --app handbrake
+distrobox-export --app mkvtoolnix-gui
