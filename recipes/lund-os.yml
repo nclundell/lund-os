@@ -14,12 +14,12 @@ modules:
   
   - type: files
     files:
-      - source: systemd
-        destination: /usr/lib/systemd
-      - source: distrobox
-        destination: /usr/etc/distrobox
-      - source: niri
-        destination: /usr/share/niri
+      - source: etc
+        destination: /usr/etc
+      - source: lib
+        destination: /usr/lib
+      - source: share
+        destination: /usr/share
 
   - type: os-release
     properties:

@@ -2,6 +2,9 @@
 
 modules:
   - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
     install:
       packages:
         # Base Tools
@@ -24,9 +27,10 @@ modules:
         - foomatic-db
         - gutenprint-cups
         - nss-mdns
-        # System Modules
+        # System
         - tuned
         - tuned-ppd
+        - uupd
     remove:
       packages:
         - firefox
