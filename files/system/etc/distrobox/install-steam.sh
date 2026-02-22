@@ -3,6 +3,7 @@ set -e
 
 # Core packages (pacman)
 core_packages=(
+  base-devel
   gamemode
   lib32-gamemode
   lib32-mangohud
@@ -11,7 +12,6 @@ core_packages=(
   lib32-pipewire-jack
   lib32-vulkan-mesa-layers
   lib32-vulkan-radeon
-  lutris
   mangohud
   openal
   pipewire
@@ -32,6 +32,5 @@ paru -Syu --noconfirm --needed "${core_packages[@]}"
 sudo sed -i 's@ (Runtime)@@g' /usr/share/applications/steam.desktop || true
 sudo sed -i 's/-march=x86-64 -mtune=generic/-march=native -mtune=native/g' /etc/makepkg.conf || true
 
-# Export Steam and Lutris as desktop apps
+# Export Steam as desktop app
 distrobox-export --app steam
-distrobox-export --app lutris

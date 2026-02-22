@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-# Core packages for development, CLI tools, and abcde dependencies
+# Core packages for development and CLI tools
 core_packages=(
-    abcde
-    abcde-musicbrainz-meta
     atuin
     base-devel
     bash-completion
@@ -12,20 +10,14 @@ core_packages=(
     bat-extras
     bottom
     cabextract
-    cdparanoia
-    cdrtools
     curl
     eza
     fd
-    ffmpeg
-    flac
     fzf
     git
     git-delta
     github-cli
     glow
-    glyr
-    id3v2
     imagemagick
     jq
     just
@@ -36,14 +28,14 @@ core_packages=(
     libyaml
     man-db
     man-pages
-    mkcue
+    mise
     mpd
     ncmpcpp
     neovim
+    opencode
     openssh
     openssl
     p7zip
-    pacman-contrib
     pandoc
     poppler
     resvg
@@ -60,6 +52,7 @@ core_packages=(
     unace
     unrar
     unzip
+    usage
     w3m
     wget
     xdg-user-dirs
@@ -76,7 +69,6 @@ core_packages=(
 # Update system and install core packages
 paru -Syu --noconfirm --needed "${core_packages[@]}"
 
-distrobox-export --bin /usr/bin/abcde
 distrobox-export --bin /usr/bin/atuin
 distrobox-export --bin /usr/bin/bat
 distrobox-export --bin /usr/bin/btm
@@ -88,8 +80,10 @@ distrobox-export --bin /usr/bin/just
 distrobox-export --bin /usr/bin/lazydocker
 distrobox-export --bin /usr/bin/lazygit
 distrobox-export --bin /usr/bin/mpd
+distrobox-export --bin /usr/bin/mise
 distrobox-export --bin /usr/bin/ncmpcpp
 distrobox-export --bin /usr/bin/nvim
+distrobox-export --bin /usr/bin/opencode
 distrobox-export --bin /usr/bin/rg
 distrobox-export --bin /usr/bin/starship
 distrobox-export --bin /usr/bin/tmux

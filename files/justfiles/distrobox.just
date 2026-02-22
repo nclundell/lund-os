@@ -1,26 +1,28 @@
-setup-media:
-  # Create distrobox and run media setup
-  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Media
-  @distrobox enter --name Media -- bash -s < /usr/etc/distrobox/media-setup.sh
-
-setup-gaming:
-  # Create distrobox and run gaming setup
-  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Gaming
-  @distrobox enter --name Gaming -- bash -s < /usr/etc/distrobox/gaming-setup.sh
-
 setup-shell:
-  # Create distrobox and run shell setup
+  # Create Shell distrobox and run install script
   @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Shell
-  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/shell-setup.sh
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-shell.sh
 
-enter-media:
-  # Enter media distrobox
-  @distrobox enter --name Media
+install-shell:
+  # Re-run shell install script in existing box
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-shell.sh
 
-enter-gaming:
-  # Enter gaming distrobox
-  @distrobox enter --name Gaming
+install-steam:
+  # Install Steam in Shell distrobox
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-steam.sh
+
+install-abcde:
+  # Install abcde CD ripper in Shell distrobox
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-abcde.sh
+
+install-handbrake:
+  # Install HandBrake in Shell distrobox
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-handbrake.sh
+
+install-makemkv:
+  # Install MakeMKV in Shell distrobox
+  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-makemkv.sh
 
 enter-shell:
-  # Enter shell distrobox
+  # Enter Shell distrobox
   @distrobox enter --name Shell

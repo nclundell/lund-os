@@ -1,27 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-# Media tools and GPU drivers for HandBrake hardware encoding
-media_packages=(
-    base-devel
-    git
-    gst-libav
-    gst-plugins-bad
-    gst-plugins-base
-    gst-plugins-good
-    gst-plugins-ugly
-    handbrake
-    intel-media-driver
-    libdvdcss
-    libva-intel-driver
-    libva-mesa-driver
-    libva-utils
-    mkvtoolnix-cli
-    mkvtoolnix-gui
-)
-
-# Update system and install media packages
-paru -Syu --noconfirm --needed "${media_packages[@]}"
+paru -Syu --noconfirm --needed mkvtoolnix-cli mkvtoolnix-gui
 
 # Skip if MakeMKV 1.17.7 is already installed
 if pacman -Q makemkv &>/dev/null && makemkvcon --version 2>/dev/null | grep -q '1.17.7'; then
@@ -54,5 +34,4 @@ if ! grep -q '^IgnorePkg *=.*makemkv' /etc/pacman.conf; then
 fi
 
 distrobox-export --app makemkv
-distrobox-export --app handbrake
 distrobox-export --app mkvtoolnix-gui
