@@ -9,15 +9,43 @@ modules:
     install:
       packages:
         # Base Tools
+        - bash-completion
+        - bat
+        - btm
+        - cabextract
         - curl
+        - fd-find
+        - fzf
         - git
+        - imagemagick
         - jq
+        - man-db
+        - man-pages
+        - mpd
+        - ncmpcpp
+        - neovim
+        - openssh
+        - openssl
+        - p7zip
+        - pandoc
+        - poppler-utils
         - ripgrep
+        - rust
+        - shellcheck
+        - sshfs
+        - sqlite
         - stow
         - tmux
+        - tree-sitter
+        - unace
+        - unrar
         - unzip
+        - w3m
         - wget
+        - xdg-user-dirs
+        - xdg-utils
         - xz
+        - zlib
         # Fonts
         - google-roboto-fonts
         # Icons
