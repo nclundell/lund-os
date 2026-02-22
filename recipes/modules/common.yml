@@ -1,70 +1,62 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
+  # ============================================================================
+  # Module 1: Fedora Main Repos
+  # Standard Fedora packages from default repositories
+  # ============================================================================
   - type: dnf
-    repos:
-      copr:
-        - ublue-os/packages
-        - nclundell/fedora-extras
-      nonfree: rpmfusion
     install:
       packages:
-        # Base Tools
+        # Core Tools
+        - curl
+        - git
+        - jq
+        - ripgrep
+        - stow
+        - tmux
+        - unzip
+        - wget
+        - xz
+        # CLI Tools
+        - abcde
         - atuin
-        - autoconf
         - bash-completion
         - bat
-        - bottom
-        - bzip2
         - cabextract
-        - curl
-        - eza
         - fd-find
         - fzf
-        - gdbm-devel
-        - gcc
-        - gh
-        - git
         - git-delta
         - glow
-        - ImageMagick
-        - jq
+        - gh
         - just
-        - lame
-        - lazydocker
-        - lazygit
-        - libffi-devel
-        - libyaml-devel
-        - man-db
-        - man-pages
-        - mpd
-        - ncmpcpp
-        - ncurses-devel
         - neovim
         - openssh
-        - openssl-devel
         - p7zip
         - pandoc
-        - patch
-        - perl-FindBin
         - poppler-utils
-        - readline-devel
-        - resvg
-        - ripgrep
-        - rust
         - shellcheck
         - sshfs
         - sqlite
-        - starship
-        - stow
-        - tmux
         - tree-sitter-cli
-        - unzip
         - w3m
-        - wget
-        - xz
-        - yazi
         - zoxide
+        # Additional
+        - ImageMagick
+        - ncmpcpp
+        # Build Dependencies
+        - autoconf
+        - bzip2
+        - gcc
+        - gdbm-devel
+        - libffi-devel
+        - libyaml-devel
+        - ncurses-devel
+        - openssl-devel
+        - patch
+        - perl-FindBin
+        - readline-devel
+        - rust
         # Fonts
         - google-roboto-fonts
         # Icons
@@ -85,11 +77,53 @@ modules:
         # System
         - tuned
         - tuned-ppd
-        - uupd
     remove:
       packages:
         - firefox
         - firefox-langpacks
+
+  # ============================================================================
+  # Module 2: COPR Repositories
+  # Community-maintained packages from COPR (ublue-os/packages, nclundell/fedora-extras)
+  # ============================================================================
+  - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
+        - nclundell/fedora-extras
+    install:
+      packages:
+        - bottom
+        - eza
+        - lazydocker
+        - lazygit
+        - resvg
+        - starship
+        - uupd
+        - yazi
+
+  # ============================================================================
+  # Module 3: Negativo17 Repository
+  # Non-free packages from negativo17 COPR (cdrtools for CD ripping)
+  # ============================================================================
+  - type: dnf
+    repos:
+      nonfree: negativo17
+    install:
+      packages:
+        - cdrtools
+
+  # ============================================================================
+  # Module 4: RPM Fusion Repository
+  # Non-free packages from RPM Fusion (lame, mpd for audio)
+  # ============================================================================
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - lame
+        - mpd
 
   - type: fonts
     fonts:
