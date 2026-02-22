@@ -11,7 +11,6 @@ modules:
         # Base Tools
         - bash-completion
         - bat
-        - btm
         - cabextract
         - curl
         - fd-find
@@ -37,8 +36,6 @@ modules:
         - stow
         - tmux
         - tree-sitter
-        - unace
-        - unrar
         - unzip
         - w3m
         - wget
