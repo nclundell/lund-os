@@ -9,19 +9,28 @@ modules:
     install:
       packages:
         # Base Tools
+        - atuin
         - autoconf
         - bash-completion
         - bat
+        - bottom
         - bzip2
         - cabextract
         - curl
+        - eza
         - fd-find
         - fzf
         - gdbm-devel
         - gcc
+        - gh
         - git
+        - git-delta
+        - glow
         - ImageMagick
         - jq
+        - just
+        - lazydocker
+        - lazygit
         - libffi-devel
         - libyaml-devel
         - man-db
@@ -37,11 +46,13 @@ modules:
         - perl-FindBin
         - poppler-utils
         - readline-devel
+        - resvg
         - ripgrep
         - rust
         - shellcheck
         - sshfs
         - sqlite
+        - starship
         - stow
         - tmux
         - tree-sitter-cli
@@ -49,6 +60,8 @@ modules:
         - w3m
         - wget
         - xz
+        - yazi
+        - zoxide
         # Fonts
         - google-roboto-fonts
         # Icons
