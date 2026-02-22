@@ -6,6 +6,7 @@ modules:
       copr:
         - ublue-os/packages
         - nclundell/fedora-extras
+      nonfree: rpmfusion
     install:
       packages:
         # Base Tools
@@ -29,12 +30,14 @@ modules:
         - ImageMagick
         - jq
         - just
+        - lame
         - lazydocker
         - lazygit
         - libffi-devel
         - libyaml-devel
         - man-db
         - man-pages
+        - mpd
         - ncmpcpp
         - ncurses-devel
         - neovim
