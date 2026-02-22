@@ -20,13 +20,12 @@ modules:
         - gdbm-devel
         - gcc
         - git
-        - imagemagick
+        - ImageMagick
         - jq
         - libffi-devel
         - libyaml-devel
         - man-db
         - man-pages
-        - mpd
         - ncmpcpp
         - ncurses-devel
         - neovim
