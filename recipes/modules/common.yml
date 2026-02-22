@@ -9,25 +9,35 @@ modules:
     install:
       packages:
         # Base Tools
+        - autoconf
         - bash-completion
         - bat
+        - bzip2
         - cabextract
         - curl
         - fd-find
         - fzf
+        - gdbm-devel
+        - gcc
         - git
         - imagemagick
         - jq
+        - libffi-devel
+        - libyaml-devel
         - man-db
         - man-pages
         - mpd
         - ncmpcpp
+        - ncurses-devel
         - neovim
         - openssh
-        - openssl
+        - openssl-devel
         - p7zip
         - pandoc
+        - patch
+        - perl-FindBin
         - poppler-utils
+        - readline-devel
         - ripgrep
         - rust
         - shellcheck
@@ -35,14 +45,11 @@ modules:
         - sqlite
         - stow
         - tmux
-        - tree-sitter
+        - tree-sitter-cli
         - unzip
         - w3m
         - wget
-        - xdg-user-dirs
-        - xdg-utils
         - xz
-        - zlib
         # Fonts
         - google-roboto-fonts
         # Icons
