@@ -58,6 +58,7 @@ modules:
           title: Flathub (system)
         install:
           - com.usebottles.bottles       # Bottles
+          - io.github.kolunmi.Bazaar     # Bazaar Flatpak Manager
           - io.github.diegopvlk.Cine     # Cine
           - com.brave.Browser            # Brave Browser
           - com.ranfdev.DistroShelf      # DistroShelf

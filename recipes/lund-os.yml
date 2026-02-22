@@ -14,8 +14,12 @@ modules:
   
   - type: files
     files:
-      - source: system
-        destination: /
+      - source: etc 
+        destination: /etc
+      - source: lib
+        destination: /usr/lib
+      - source: share
+        destination: /usr/share
 
   - type: os-release
     properties:

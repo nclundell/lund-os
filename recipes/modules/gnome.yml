@@ -7,6 +7,9 @@ modules:
         - gnome-menus
         - lm_sensors
         - sushi
+    remove:
+      packages:
+        - gnome-software
 
   - type: gnome-extensions
     install:
