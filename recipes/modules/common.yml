@@ -104,14 +104,16 @@ modules:
 
   # ============================================================================
   # Module 3: Negativo17 Repository
-  # Non-free packages from negativo17 COPR (cdrtools for CD ripping)
+  # Non-free packages from negativo17 COPR (cdda2wav for CD ripping)
   # ============================================================================
   - type: dnf
     repos:
       nonfree: negativo17
     install:
       packages:
-        - cdrtools
+        - cdda2wav
+        - cdrecord
+        - mkisofs
 
   # ============================================================================
   # Module 4: RPM Fusion Repository
