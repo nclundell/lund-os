@@ -5,11 +5,19 @@ modules:
     repos:
       copr:
         - ublue-os/packages
+        - nclundell/fedora-extras
     install:
       packages:
         # Base Tools
+        - curl
         - git
+        - jq
+        - ripgrep
         - stow
+        - tmux
+        - unzip
+        - wget
+        - xz
         # Fonts
         - google-roboto-fonts
         # Icons
