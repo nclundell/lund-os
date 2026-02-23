@@ -73,7 +73,7 @@ modules:
         # - CaskaydiaCove
         - FiraCode
         - Hack
-        - Inconsolita
+        - Inconsolata
         - JetBrainsMono
       google-fonts:
         - Roboto
