@@ -19,7 +19,6 @@ modules:
         - wget
         - xz
         # CLI Tools
-        - abcde
         - atuin
         - bash-completion
         - bat
@@ -104,16 +103,13 @@ modules:
 
   # ============================================================================
   # Module 3: Negativo17 Repository
-  # Non-free packages from negativo17 COPR (cdda2wav for CD ripping)
+  # (Currently unused - CD ripping tools moved to Shell distrobox)
   # ============================================================================
   - type: dnf
     repos:
       nonfree: negativo17
     install:
-      packages:
-        - cdda2wav
-        - cdrecord
-        - mkisofs
+      packages: []
 
   # ============================================================================
   # Module 4: RPM Fusion Repository
