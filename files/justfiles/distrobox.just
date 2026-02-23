@@ -1,11 +1,6 @@
 setup-shell:
-  # Create Shell distrobox and run install script
+  # Create Shell distrobox (no install script needed - packages in base image)
   @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name Shell
-  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-shell.sh
-
-install-shell:
-  # Re-run shell install script in existing box
-  @distrobox enter --name Shell -- bash -s < /usr/etc/distrobox/install-shell.sh
 
 install-steam:
   # Install Steam in Shell distrobox

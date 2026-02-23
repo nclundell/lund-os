@@ -2,80 +2,33 @@
 
 modules:
   # ============================================================================
-  # Module 1: Fedora Main Repos
+  # DNF Module 1: Fedora Main Repos
   # Standard Fedora packages from default repositories
   # ============================================================================
   - type: dnf
     install:
       packages:
-        # Core Tools
-        - curl
-        - git
-        - jq
-        - ripgrep
-        - stow
-        - tmux
-        - unzip
-        - wget
-        - xz
         # CLI Tools
         - atuin
-        - bash-completion
         - bat
         - cabextract
         - fd-find
-        - fzf
         - git-delta
         - glow
         - gh
-        - just
+        - ncmpcpp
         - neovim
-        - openssh
         - p7zip
         - pandoc
-        - poppler-utils
         - shellcheck
         - sshfs
         - sqlite
         - tree-sitter-cli
         - w3m
         - zoxide
-        # Additional
-        - ImageMagick
-        - ncmpcpp
-        # Build Dependencies
-        - autoconf
-        - bzip2
-        - gcc
-        - gdbm-devel
-        - libffi-devel
-        - libyaml-devel
-        - ncurses-devel
-        - openssl-devel
-        - patch
-        - perl-FindBin
-        - readline-devel
-        - rust
-        # Fonts
-        - google-roboto-fonts
         # Icons
-        - adwaita-icon-theme
-        - breeze-icon-theme
         - papirus-icon-theme
         - yaru-icon-theme
-        # Printer
-        - avahi
-        - bluez-cups
-        - cups
-        - cups-browsed
-        - cups-filters
-        - foomatic
-        - foomatic-db
-        - gutenprint-cups
-        - nss-mdns
-        # System
-        - tuned
-        - tuned-ppd
     remove:
       packages:
         - firefox
@@ -102,17 +55,7 @@ modules:
         - yazi
 
   # ============================================================================
-  # Module 3: Negativo17 Repository
-  # (Currently unused - CD ripping tools moved to Shell distrobox)
-  # ============================================================================
-  - type: dnf
-    repos:
-      nonfree: negativo17
-    install:
-      packages: []
-
-  # ============================================================================
-  # Module 4: RPM Fusion Repository
+  # Module 3: RPM Fusion Repository
   # Non-free packages from RPM Fusion (lame, mpd for audio)
   # ============================================================================
   - type: dnf
@@ -130,8 +73,10 @@ modules:
         # - CaskaydiaCove
         - FiraCode
         - Hack
-        - Inconsolata
+        - Inconsolita
         - JetBrainsMono
+      google-fonts:
+        - Roboto
 
   - type: default-flatpaks
     configurations:
@@ -144,10 +89,10 @@ modules:
         repo:
           title: Flathub (system)
         install:
+          - io.github.kolunmi.Bazaar     # Bazaar
           - com.usebottles.bottles       # Bottles
-          - io.github.kolunmi.Bazaar     # Bazaar Flatpak Manager
-          - io.github.diegopvlk.Cine     # Cine
           - com.brave.Browser            # Brave Browser
+          - io.github.diegopvlk.Cine     # Cine
           - com.ranfdev.DistroShelf      # DistroShelf
           - com.github.tchx84.Flatseal   # Flatseal
           - one.ablaze.floorp            # Floorp Browser
