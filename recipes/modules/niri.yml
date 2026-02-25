@@ -1,5 +1,9 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
 
+# ============================================================================
+# Module: Niri
+# Niri window manager and related packages
+# ============================================================================
 type: dnf
 repos:
   copr:
