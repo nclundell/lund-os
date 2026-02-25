@@ -33,4 +33,4 @@ sudo sed -i 's@ (Runtime)@@g' /usr/share/applications/steam.desktop || true
 sudo sed -i 's/-march=x86-64 -mtune=generic/-march=native -mtune=native/g' /etc/makepkg.conf || true
 
 # Export Steam as desktop app
-distrobox-export --app steam
+distrobox-export --app /usr/bin/steam

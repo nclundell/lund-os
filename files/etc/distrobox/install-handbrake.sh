@@ -19,5 +19,5 @@ handbrake_packages=(
 
 paru -Syu --noconfirm --needed "${handbrake_packages[@]}"
 
-distrobox-export --app handbrake
-distrobox-export --app mkvtoolnix-gui
+distrobox-export --app /usr/bin/handbrake
+distrobox-export --app /usr/bin/mkvtoolnix-gui
