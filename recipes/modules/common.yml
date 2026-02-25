@@ -2,31 +2,16 @@
 
 modules:
   # ============================================================================
-  # DNF Module 1: Fedora Main Repos
+  # Module: Fedora Main Repos
   # Standard Fedora packages from default repositories
   # ============================================================================
   - type: dnf
     install:
       packages:
-        # CLI Tools
-        - atuin
-        - bat
-        - cabextract
-        - fd-find
-        - git-delta
-        - glow
-        - gh
+        - git
         - ncmpcpp
         - neovim
-        - p7zip
-        - pandoc
-        - shellcheck
-        - sshfs
-        - sqlite
-        - tree-sitter-cli
-        - w3m
-        - zoxide
-        # Icons
+        - stow
         - papirus-icon-theme
         - yaru-icon-theme
     remove:
@@ -35,28 +20,21 @@ modules:
         - firefox-langpacks
 
   # ============================================================================
-  # Module 2: COPR Repositories
-  # Community-maintained packages from COPR (ublue-os/packages, nclundell/fedora-extras)
+  # Module: COPR Repositories
+  # Community-maintained packages from COPR (ublue-os/packages)
   # ============================================================================
   - type: dnf
     repos:
       copr:
         - ublue-os/packages
-        - nclundell/fedora-extras
     install:
       packages:
-        - bottom
-        - eza
-        - lazydocker
-        - lazygit
-        - resvg
-        - starship
+        - ublue-motd
         - uupd
-        - yazi
 
   # ============================================================================
-  # Module 3: RPM Fusion Repository
-  # Non-free packages from RPM Fusion (lame, mpd for audio)
+  # Module: RPM Fusion Repository
+  # Non-free packages from RPM Fusion
   # ============================================================================
   - type: dnf
     repos:
@@ -66,6 +44,10 @@ modules:
         - lame
         - mpd
 
+  # ============================================================================
+  # Module: Fonts
+  # Nerd Fonts and Google Fonts
+  # ============================================================================
   - type: fonts
     fonts:
       nerd-fonts:
@@ -78,6 +60,10 @@ modules:
       google-fonts:
         - Roboto
 
+  # ============================================================================
+  # Module: Default Flatpaks
+  # Pre-installed Flatpak applications
+  # ============================================================================
   - type: default-flatpaks
     configurations:
       - scope: user

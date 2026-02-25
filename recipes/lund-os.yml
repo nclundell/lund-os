@@ -9,6 +9,12 @@ modules:
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
 
+  - type: systemd
+    system:
+      disabled:
+        - rpm-ostreed-automatic.timer
+        - flatpak-system-update.timer
+
   - type: justfiles
     install: true
   
@@ -20,6 +26,8 @@ modules:
         destination: /usr/lib
       - source: share
         destination: /usr/share
+      - source: etc/skel
+        destination: /etc/skel
 
   - type: os-release
     properties:
