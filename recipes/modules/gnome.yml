@@ -1,10 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
-  # ============================================================================
   # Module: GNOME Core
   # Core GNOME packages and removals
-  # ============================================================================
   - type: dnf
     install:
       packages:
@@ -15,10 +13,8 @@ modules:
       packages:
         - gnome-software
 
-  # ============================================================================
   # Module: GNOME Extensions
   # GNOME Shell extensions to install
-  # ============================================================================
   - type: gnome-extensions
     install:
       - 615  # AppIndicators/System Tray
@@ -31,10 +27,8 @@ modules:
       - 5470 # Weather O'Clock
       - 4228 # Wireless HID
 
-  # ============================================================================
   # Module: GNOME Flatpaks
   # GNOME-related Flatpak applications
-  # ============================================================================
   - type: default-flatpaks
     configurations:
       - scope: user

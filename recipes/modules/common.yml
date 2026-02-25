@@ -1,10 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
-  # ============================================================================
   # Module: Fedora Main Repos
   # Standard Fedora packages from default repositories
-  # ============================================================================
   - type: dnf
     install:
       packages:
@@ -19,10 +17,8 @@ modules:
         - firefox
         - firefox-langpacks
 
-  # ============================================================================
   # Module: COPR Repositories
-  # Community-maintained packages from COPR (ublue-os/packages)
-  # ============================================================================
+  # Community packages from COPR (ublue-os/packages)
   - type: dnf
     repos:
       copr:
@@ -32,10 +28,8 @@ modules:
         - ublue-motd
         - uupd
 
-  # ============================================================================
   # Module: RPM Fusion Repository
   # Non-free packages from RPM Fusion
-  # ============================================================================
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -44,10 +38,8 @@ modules:
         - lame
         - mpd
 
-  # ============================================================================
   # Module: Fonts
   # Nerd Fonts and Google Fonts
-  # ============================================================================
   - type: fonts
     fonts:
       nerd-fonts:
@@ -60,10 +52,8 @@ modules:
       google-fonts:
         - Roboto
 
-  # ============================================================================
   # Module: Default Flatpaks
   # Pre-installed Flatpak applications
-  # ============================================================================
   - type: default-flatpaks
     configurations:
       - scope: user
