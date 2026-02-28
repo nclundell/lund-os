@@ -4,13 +4,17 @@ modules:
   # Module: Fedora Main Repos
   # Standard Fedora packages from default repositories
   - type: dnf
+    repos:
+      nonfree: rpmfusion
     install:
       packages:
         - autoconf
         - bzip2
         - gcc
         - git
+        - lame
         - make
+        - mpd
         - ncmpcpp
         - neovim
         - papirus-icon-theme
@@ -45,13 +49,13 @@ modules:
 
   # Module: RPM Fusion Repository
   # Non-free packages from RPM Fusion
-  - type: dnf
-    repos:
-      nonfree: rpmfusion
-    install:
-      packages:
-        - lame
-        - mpd
+  # - type: dnf
+  #   repos:
+  #     nonfree: rpmfusion
+  #   install:
+  #     packages:
+  #       - lame
+  #       - mpd
 
   # Module: Fonts
   # Nerd Fonts and Google Fonts
