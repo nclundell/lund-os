@@ -6,6 +6,8 @@ modules:
   - type: dnf
     repos:
       nonfree: rpmfusion
+      copr:
+        - ublue-os/packages
     install:
       packages:
         - autoconf
@@ -21,6 +23,8 @@ modules:
         - patch
         - rust
         - stow
+        - ublue-motd
+        - uupd
         - yaru-icon-theme
         # Development
         - gdbm-devel
@@ -38,14 +42,12 @@ modules:
 
   # Module: COPR Repositories
   # Community packages from COPR (ublue-os/packages)
-  - type: dnf
-    repos:
-      copr:
-        - ublue-os/packages
-    install:
-      packages:
-        - ublue-motd
-        - uupd
+  # - type: dnf
+  #   repos:
+  #     copr:
+  #       - ublue-os/packages
+  #   install:
+  #     packages:
 
   # Module: RPM Fusion Repository
   # Non-free packages from RPM Fusion
