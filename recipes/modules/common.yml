@@ -6,12 +6,27 @@ modules:
   - type: dnf
     install:
       packages:
+        - autoconf
+        - bzip2
+        - gcc
         - git
+        - make
         - ncmpcpp
         - neovim
-        - stow
         - papirus-icon-theme
+        - patch
+        - rust
+        - stow
         - yaru-icon-theme
+        # Development
+        - gdbm-devel
+        - libffi-devel
+        - libyaml-devel
+        - ncurses-devel
+        - openssl-devel
+        - perl-FindBin
+        - readline-devel
+        - zlib-ng-compat-devel
     remove:
       packages:
         - firefox
@@ -71,4 +86,4 @@ modules:
           - io.github.diegopvlk.Cine     # Cine
           - com.ranfdev.DistroShelf      # DistroShelf
           - com.github.tchx84.Flatseal   # Flatseal
-          - one.ablaze.floorp            # Floorp Browser
+          - org.mozilla.firefox           # Firefox
