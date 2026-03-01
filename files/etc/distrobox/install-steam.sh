@@ -21,9 +21,9 @@ packages=(
 sudo pacman -Syu --noconfirm --needed "${packages[@]}"
 
 # Patch steam.desktop for native optimizations and Wayland/CEF fix
-sudo sed -i 's@ (Runtime)@@g' /usr/share/applications/steam.desktop || true
-sudo sed -i 's/-march=x86-64 -mtune=generic/-march=native -mtune=native/g' /etc/makepkg.conf || true
-sudo sed -i 's/Exec=steam/Exec=steam -cef-disable-gpu/g' /usr/share/applications/steam.desktop || true
+sudo sed -i 's@ (Runtime)@@g' /usr/share/applications/steam.desktop
+sudo sed -i 's/-march=x86-64 -mtune=generic/-march=native -mtune=native/g' /etc/makepkg.conf
+sudo sed -i 's/steam %U/steam %U -cef-disable-gpu/g' /usr/share/applications/steam.desktop
 
 # Export Steam
 distrobox-export --app steam
