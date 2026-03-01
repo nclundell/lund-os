@@ -40,6 +40,8 @@ modules:
         destination: /usr/lib
       - source: share
         destination: /usr/share
+      - source: usr/local/bin
+        destination: /usr/local/bin
       - source: etc/skel
         destination: /etc/skel
 

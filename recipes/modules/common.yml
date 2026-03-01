@@ -9,6 +9,7 @@ modules:
     install:
       packages:
         - abcde
+        - cabextract
         - flac
         - git
         - icedax
@@ -18,9 +19,12 @@ modules:
         - mpd
         - ncmpcpp
         - opus-tools
+        - p7zip
         - papirus-icon-theme
         - stow
         - ublue-motd
+        - unrar
+        - unzip
         - uupd
         - vorbis-tools
         - yaru-icon-theme

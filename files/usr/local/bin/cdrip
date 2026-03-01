@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+case $1 in
+  ogg | mp3 | flac | opus)
+    abcde -c $HOME/.config/abcde/config -o $1
+    ;;
+  *)
+    echo "File format \"$1\" not recognized."
+    echo "Defaulting to OGG format..."
+    abcde -c $HOME/.config/abcde/config -o ogg
+    ;;
+esac
