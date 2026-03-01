@@ -22,7 +22,6 @@ modules:
         - p7zip
         - papirus-icon-theme
         - stow
-        - ublue-motd
         - unrar
         - unzip
         - uupd
