@@ -35,7 +35,7 @@ else
 fi
 
 BUILD_DIR="/tmp/makemkv-build"
-MAKEMKV_VERSION="${1:-1.17.7}"
+MAKEMKV_VERSION="${1:-1.17.6}"
 
 cleanup() {
   if [ -d "$BUILD_DIR" ]; then
@@ -70,13 +70,14 @@ echo "Building and installing makemkv-oss..."
 pushd "makemkv-oss-${MAKEMKV_VERSION}" > /dev/null
 ./configure
 make
-yes | sudo make install
+sudo make install
 popd > /dev/null
 
 echo "Installing makemkv-bin..."
 pushd "makemkv-bin-${MAKEMKV_VERSION}" > /dev/null
-make
-yes | sudo make install
+mkdir -p tmp
+echo "yes" > tmp/eula_accepted
+sudo make install
 popd > /dev/null
 
 if ! command -v makemkvcon &>/dev/null; then
