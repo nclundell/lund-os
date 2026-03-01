@@ -10,6 +10,8 @@ packages=(
   lib32-openal
   lib32-vulkan-mesa-layers
   lib32-vulkan-radeon
+  intel-media-driver
+  libva-mesa-driver
   mangohud
   openal
   steam
@@ -18,9 +20,10 @@ packages=(
 
 sudo pacman -Syu --noconfirm --needed "${packages[@]}"
 
-# Patch steam.desktop for native optimizations
+# Patch steam.desktop for native optimizations and Wayland/CEF fix
 sudo sed -i 's@ (Runtime)@@g' /usr/share/applications/steam.desktop || true
 sudo sed -i 's/-march=x86-64 -mtune=generic/-march=native -mtune=native/g' /etc/makepkg.conf || true
+sudo sed -i 's/Exec=steam/Exec=steam -cef-disable-gpu/g' /usr/share/applications/steam.desktop || true
 
 # Export Steam
 distrobox-export --app steam

@@ -11,24 +11,33 @@ sudo dnf makecache || true
 
 echo "Installing video tools packages..."
 VIDEO_PACKAGES=(
-  handbrake
-  handbrake-gui
-  mkvtoolnix
-  mkvtoolnix-gui
-
   autoconf
   automake
+  gcc
+  handbrake
+  handbrake-gui
+  libtool
+  libva-intel-media-driver
+  libva-utils
+  make
+  mesa-va-drivers-freeworld
+  mkvtoolnix
+  mkvtoolnix-gui
   expat-devel
   ffmpeg-devel
-  gcc
-  libtool
-  make
   openssl-devel
   qt5-qtbase-devel
   zlib-devel
 )
 
 sudo dnf install -y "${VIDEO_PACKAGES[@]}"
+
+echo "Verifying VAAPI hardware acceleration..."
+if command -v vainfo &>/dev/null; then
+  vainfo || true
+else
+  echo "Note: vainfo not available, skipping VAAPI verification"
+fi
 
 BUILD_DIR="/tmp/makemkv-build"
 MAKEMKV_VERSION="${1:-1.17.7}"
