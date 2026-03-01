@@ -1,19 +1,9 @@
-setup-arch:
-  # Create arch distrobox
-  @distrobox-assemble create --file /usr/etc/distrobox/distrobox.ini --name arch
-
 install-steam:
-  # Install Steam in arch distrobox
-  @distrobox enter --name arch -- bash -s < /usr/etc/distrobox/install-steam.sh
+  # Install Steam and gaming tools (Gamemode, Gamescope, Mangohud, etc.)
+  @distrobox list | grep -q gaming-toolbox || distrobox create --name gaming-toolbox --image ghcr.io/ublue-os/arch-toolbox:latest
+  @distrobox enter --name gaming-toolbox -- bash -s < /usr/etc/distrobox/install-steam.sh; exit
 
-install-abcde:
-  # Install abcde CD ripper in arch distrobox
-  @distrobox enter --name arch -- bash -s < /usr/etc/distrobox/install-abcde.sh
-
-install-handbrake:
-  # Install HandBrake in arch distrobox
-  @distrobox enter --name arch -- bash -s < /usr/etc/distrobox/install-handbrake.sh
-
-install-makemkv:
-  # Install MakeMKV in arch distrobox
-  @distrobox enter --name arch -- bash -s < /usr/etc/distrobox/install-makemkv.sh
+install-video-tools:
+  # Install video tools (MakeMKV, HandBrake, etc)
+  @distrobox list | grep -q media-toolbox || distrobox create --name media-toolbox --image ghcr.io/ublue-os/fedora-toolbox:latest
+  @distrobox enter --name media-toolbox -- bash -s < /usr/etc/distrobox/install-video-tools.sh; exit
