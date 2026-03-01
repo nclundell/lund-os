@@ -17,12 +17,7 @@ VIDEO_PACKAGES=(
   handbrake
   handbrake-gui
   libtool
-  libva-intel-media-driver
-  libva-utils
   make
-  mesa-va-drivers-freeworld
-  mkvtoolnix
-  mkvtoolnix-gui
   expat-devel
   ffmpeg-devel
   openssl-devel
@@ -75,13 +70,13 @@ echo "Building and installing makemkv-oss..."
 pushd "makemkv-oss-${MAKEMKV_VERSION}" > /dev/null
 ./configure
 make
-sudo make install
+yes | sudo make install
 popd > /dev/null
 
 echo "Installing makemkv-bin..."
 pushd "makemkv-bin-${MAKEMKV_VERSION}" > /dev/null
 make
-sudo make install
+yes | sudo make install
 popd > /dev/null
 
 if ! command -v makemkvcon &>/dev/null; then
@@ -95,7 +90,7 @@ echo "Successfully installed: $INSTALLED_VERSION"
 popd > /dev/null
 
 echo "Exporting applications to host..."
+distrobox-export --app ghb
 distrobox-export --app makemkv
-distrobox-export --app handbrake
 
 echo "Video tools installation complete!"
