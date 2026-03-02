@@ -2,19 +2,14 @@
 
 modules:
   - type: dnf
-    repos:
-      nonfree: rpmfusion
     install:
       packages:
         - abcde
         - cabextract
         - flac
         - git
-        - icedax
         - ImageMagick
-        - lame
         - libdiscid
-        - mpd
         - ncmpcpp
         - opus-tools
         - p7zip
@@ -28,6 +23,21 @@ modules:
       packages:
         - firefox
         - firefox-langpacks
+
+  - type: dnf
+    repos:
+      nonfree: negativo17
+    install:
+      packages:
+        - cdrtools
+
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - lame
+        - mpd
 
   - type: fonts
     fonts:

@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-echo "Enabling RPM Fusion repositories..."
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+echo "Enabling Negativo17 multimedia repository..."
+sudo dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 echo "Refreshing package cache..."
 sudo dnf makecache || true
@@ -14,8 +12,9 @@ VIDEO_PACKAGES=(
   autoconf
   automake
   gcc
-  handbrake
-  handbrake-gui
+  libdvdcss
+  Handbrake-cli
+  Handbrake-gui
   libtool
   make
   expat-devel
