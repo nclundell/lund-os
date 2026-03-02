@@ -29,7 +29,9 @@ modules:
       nonfree: negativo17
     install:
       packages:
-        - cdrtools
+        - cdda2wav
+        - cdrecord
+        - mkisofs
 
   - type: dnf
     repos:
