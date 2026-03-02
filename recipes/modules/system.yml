@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: systemd
+    system:
+      disabled:
+        - rpm-ostreed-automatic.timer
+        - flatpak-system-update.timer
+  - type: justfiles
+    install: true
+
+  - type: files
+    files:
+      - source: etc 
+        destination: /etc
+      - source: lib
+        destination: /usr/lib
+      - source: share
+        destination: /usr/share
+      - source: usr/local/bin
+        destination: /usr/local/bin
+      - source: etc/skel
+        destination: /etc/skel
+
+  - type: os-release
+    properties:
+      NAME: lund-os
+      ID: lund-os
+      ID_LIKE: fedora
+      PRETTY_NAME: LundOS (Custom Fedora Atomic)
+      DEFAULT_HOSTNAME: lund-os
+      HOME_URL: https://github.com/nclundell/lund-os
