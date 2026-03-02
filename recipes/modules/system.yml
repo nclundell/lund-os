@@ -3,8 +3,12 @@
 modules:
   - type: systemd
     system:
-      disabled:
+      masked:
         - rpm-ostreed-automatic.timer
+      enabled:
+        - bootc-fetch-apply-updates.timer
+    user:
+      enabled:
         - flatpak-system-update.timer
 
   - type: justfiles
@@ -31,5 +35,3 @@ modules:
       PRETTY_NAME: LundOS (Custom Fedora Atomic)
       DEFAULT_HOSTNAME: lundos
       HOME_URL: https://github.com/nclundell/lund-os
-
-  - type: signing

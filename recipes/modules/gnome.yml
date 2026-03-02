@@ -34,11 +34,7 @@ modules:
       - scope: user
         notify: false
         repo:
-          title: Flathub (user)
-      - scope: system
-        notify: false
-        repo:
-          title: Flathub (system)
+          title: Flathub
         install:
           # Official Apps
           - org.gnome.Loupe                      # Image Viewer

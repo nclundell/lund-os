@@ -2,14 +2,24 @@
 
 ## Variants
 
-There are two variants available:
-- **lundos-main**: For use with AMD/Intel drivers
-- **lundos-nvidia**: For use with nVidia drivers
+There are three variants available:
+- **lundos-main**: Standard build with AMD/Intel GPU support
+- **lundos-nvidia**: NVIDIA GPU variant with proprietary driver
+- **lundos-nvidia-open**: NVIDIA GPU variant with open-source driver
+
+## Base Image
+
+Uses [blue-build base images](https://github.com/blue-build/base-images) which include:
+- Distrobox, just, bootc
+- Codecs and multimedia support (via Negativo17)
+- Hardware support (libcamera, nvtop, libratbag, etc.)
+- udev rules for peripherals
+- Automatic updates via bootc-fetch-apply-updates.timer
 
 ## Installation
 
 To rebase an existing atomic Fedora installation to the latest build:
-(Replace `{version}` with either `main` or `nvidia` depending on which variant you want.)
+(Replace `{version}` with `main`, `nvidia`, or `nvidia-open` depending on which variant you want.)
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```

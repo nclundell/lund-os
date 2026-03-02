@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: lundos-nvidia
-description: NVIDIA GPU variant with proprietary driver
-base-image: ghcr.io/blue-build/base-images/fedora-silverblue-nvidia
+name: lundos-nvidia-open
+description: NVIDIA GPU variant with open-source driver
+base-image: ghcr.io/blue-build/base-images/fedora-silverblue-nvidia-open
 image-version: latest
 
 modules:

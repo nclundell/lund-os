@@ -4,8 +4,6 @@ modules:
   - type: dnf
     repos:
       nonfree: rpmfusion
-      copr:
-        - ublue-os/packages
     install:
       packages:
         - abcde
@@ -24,7 +22,6 @@ modules:
         - stow
         - unrar
         - unzip
-        - uupd
         - vorbis-tools
         - yaru-icon-theme
     remove:
@@ -49,11 +46,7 @@ modules:
       - scope: user
         notify: false
         repo:
-          title: Flathub (user)
-      - scope: system
-        notify: false
-        repo:
-          title: Flathub (system)
+          title: Flathub
         install:
           - io.github.kolunmi.Bazaar     # Bazaar
           - com.usebottles.bottles       # Bottles
