@@ -28,6 +28,7 @@ jobs:
         recipe:
           - lundos-main.yml
           - lundos-nvidia.yml
+          - lundos-nvidia-open.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image

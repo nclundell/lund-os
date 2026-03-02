@@ -7,9 +7,6 @@ modules:
         - rpm-ostreed-automatic.timer
       enabled:
         - bootc-fetch-apply-updates.timer
-    user:
-      enabled:
-        - flatpak-system-update.timer
 
   - type: justfiles
     install: true
