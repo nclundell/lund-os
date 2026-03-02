@@ -9,5 +9,3 @@ modules:
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
   - from-file: modules/system.yml
-
-  - type: signing

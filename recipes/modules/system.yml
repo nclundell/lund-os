@@ -6,6 +6,7 @@ modules:
       disabled:
         - rpm-ostreed-automatic.timer
         - flatpak-system-update.timer
+
   - type: justfiles
     install: true
 
@@ -24,9 +25,11 @@ modules:
 
   - type: os-release
     properties:
-      NAME: lund-os
-      ID: lund-os
+      NAME: lundos
+      ID: lundos
       ID_LIKE: fedora
       PRETTY_NAME: LundOS (Custom Fedora Atomic)
-      DEFAULT_HOSTNAME: lund-os
+      DEFAULT_HOSTNAME: lundos
       HOME_URL: https://github.com/nclundell/lund-os
+
+  - type: signing

@@ -5,10 +5,8 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
+  - from-file: modules/nvidia.yml
   - from-file: modules/common.yml
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
   - from-file: modules/system.yml
-  - from-file: modules/nvidia.yml
-
-  - type: signing
