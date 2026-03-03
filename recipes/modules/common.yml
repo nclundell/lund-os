@@ -6,6 +6,8 @@ modules:
       packages:
         - abcde
         - cabextract
+        - cd-discid
+        - cdparanoia
         - flac
         - git
         - ImageMagick
@@ -23,15 +25,6 @@ modules:
       packages:
         - firefox
         - firefox-langpacks
-
-  - type: dnf
-    repos:
-      nonfree: negativo17
-    install:
-      packages:
-        - cdda2wav
-        - cdrecord
-        - mkisofs
 
   - type: dnf
     repos:
