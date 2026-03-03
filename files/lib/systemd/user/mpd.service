@@ -5,4 +5,5 @@ After=network.target sound.target pipewire.service
 [Service]
 Type=simple
 ExecStart=/usr/bin/mpd --no-daemon
+ExecStartPost=/usr/bin/mpdris2
 Restart=on-failure
