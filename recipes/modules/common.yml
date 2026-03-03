@@ -13,6 +13,7 @@ modules:
         - ImageMagick
         - libdiscid
         - ncmpcpp
+        - mpdris2
         - opus-tools
         - p7zip
         - papirus-icon-theme
@@ -33,7 +34,6 @@ modules:
       packages:
         - lame
         - mpd
-        - mpdris2
 
   - type: fonts
     fonts:
