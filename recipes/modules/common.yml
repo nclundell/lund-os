@@ -33,6 +33,7 @@ modules:
       packages:
         - lame
         - mpd
+        - mpdris2
 
   - type: fonts
     fonts:
