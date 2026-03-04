@@ -25,7 +25,7 @@ modules:
   - type: containerfile
     snippets:
       - COPY --link files/usr/local/bin/* /usr/local/bin/
-      - RUN chmod +x /usr/local/bin/cdrip /usr/local/bin/extract
+      - RUN chmod +x /usr/local/bin/extract
 
   - type: os-release
     properties:
