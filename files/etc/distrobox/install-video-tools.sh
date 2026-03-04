@@ -2,7 +2,7 @@
 set -e
 
 echo "Enabling Negativo17 multimedia repository..."
-sudo dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+sudo dnf repolist | grep -q negativo17 || sudo dnf config-manager --add-repo=https://negativo17.org/repos/fedora-multimedia.repo   
 
 echo "Refreshing package cache..."
 sudo dnf makecache || true
@@ -13,8 +13,8 @@ VIDEO_PACKAGES=(
   automake
   gcc
   libdvdcss
-  Handbrake-cli
-  Handbrake-gui
+  HandBrake-cli
+  HandBrake-gui
   libtool
   make
   expat-devel
