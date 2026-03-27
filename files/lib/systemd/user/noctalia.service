@@ -1,0 +1,8 @@
+[Unit]
+Description=Noctalia Shell
+After=niri.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/qs -c noctalia-shell
+Restart=on-failure

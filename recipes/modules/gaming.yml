@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+
+# Module: Gaming
+# Steam and universal gaming packages
+
+type: dnf
+repos:
+  files:
+    - https://negativo17.org/repos/fedora-steam.repo
+  cleanup: true
+install:
+  packages:
+    - steam
+    - gamescope.x86_64
+    - gamescope-libs.x86_64
+    - gamescope-libs.i686
+    - mangohud.x86_64
+    - mangohud.i686
+    - gamemode.x86_64
+    - gamemode.i686
+    - vulkan-loader.i686
+    - vkBasalt.x86_64
+    - vkBasalt.i686
+    - libFAudio.x86_64
+    - libFAudio.i686
+    - libxcrypt-compat

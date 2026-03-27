@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MAKEMKV_VERSION="${1:-1.17.6}"
+INSTALL_PREFIX="/usr/local"
+CONTAINER_NAME="makemkv-build-$$"
+
+echo "Building MakeMKV ${MAKEMKV_VERSION}..."
+
+# Clean up container on exit
+cleanup() {
+  podman rm -f "${CONTAINER_NAME}" 2>/dev/null || true
+}
+trap cleanup EXIT
+
+# Run build in a temporary Fedora container with /usr/local bind-mounted from the host
+podman run --name "${CONTAINER_NAME}" \
+  --volume "${INSTALL_PREFIX}:${INSTALL_PREFIX}" \
+  --rm \
+  fedora:latest bash -euo pipefail -s << EOF
+
+echo "Adding negativo17 multimedia repo for ffmpeg-devel..."
+dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+
+echo "Installing build dependencies..."
+dnf install -y \
+  autoconf \
+  automake \
+  ffmpeg-devel \
+  expat-devel \
+  gcc \
+  gcc-c++ \
+  libtool \
+  make \
+  openssl-devel \
+  qt5-qtbase-devel \
+  zlib-devel
+
+BUILD_DIR="\$(mktemp -d)"
+cd "\${BUILD_DIR}"
+
+echo "Downloading MakeMKV ${MAKEMKV_VERSION}..."
+curl -fsSL -o "makemkv-oss-${MAKEMKV_VERSION}.tar.gz" \
+  "https://makemkv.com/download/old/makemkv-oss-${MAKEMKV_VERSION}.tar.gz"
+curl -fsSL -o "makemkv-bin-${MAKEMKV_VERSION}.tar.gz" \
+  "https://makemkv.com/download/old/makemkv-bin-${MAKEMKV_VERSION}.tar.gz"
+
+echo "Extracting..."
+tar -xzf "makemkv-oss-${MAKEMKV_VERSION}.tar.gz"
+tar -xzf "makemkv-bin-${MAKEMKV_VERSION}.tar.gz"
+
+echo "Building makemkv-oss..."
+cd "makemkv-oss-${MAKEMKV_VERSION}"
+./configure --prefix="${INSTALL_PREFIX}"
+make -j\$(nproc)
+make install
+cd ..
+
+echo "Installing makemkv-bin..."
+cd "makemkv-bin-${MAKEMKV_VERSION}"
+mkdir -p tmp
+echo "yes" > tmp/eula_accepted
+make install PREFIX="${INSTALL_PREFIX}"
+cd ..
+
+echo "Cleaning up build directory..."
+rm -rf "\${BUILD_DIR}"
+
+echo "MakeMKV ${MAKEMKV_VERSION} installed successfully to ${INSTALL_PREFIX}."
+EOF

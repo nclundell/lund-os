@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  # HandBrake, libdvdcss, and lame from negativo17 multimedia
+  - type: dnf
+    repos:
+      files:
+        - https://negativo17.org/repos/fedora-multimedia.repo
+      cleanup: true
+    install:
+      packages:
+        - HandBrake-gui
+        - HandBrake-cli
+        - libdvdcss
+        - lame
+
+  # mpd from RPM Fusion free
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - mpd
+        - mpdris2
+        - ncmpcpp
+
+  # CD ripping tools from standard Fedora
+  - type: dnf
+    install:
+      packages:
+        - abcde
+        - cd-discid
+        - flac
+        - libcdio-paranoia
+        - libdiscid
+        - opus-tools
+        - vorbis-tools

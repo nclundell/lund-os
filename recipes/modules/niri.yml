@@ -1,26 +1,20 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 # Module: Niri
 # Niri window manager and related packages
 
-type: dnf
-repos:
-  copr:
-    - avengemedia/dms
-    - avengemedia/danklinux
-    - yalter/niri
-install:
-  packages:
-    - cava
-    - cliphist
-    - dgop
-    - dms
-    - danksearch
-    - ghostty
-    - mate-polkit
-    - material-symbols-fonts
-    - matugen
-    - niri
-    - qt6-qtmultimedia
-    - quickshell
-    - wl-clipboard
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - yalter/niri
+    install:
+      packages:
+        - cava
+        - cliphist
+        - niri
+        - wl-clipboard
+        - wl-mirror
+        - wlr-randr
+
+  - from-file: modules/noctalia.yml

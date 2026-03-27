@@ -4,36 +4,23 @@ modules:
   - type: dnf
     install:
       packages:
-        - abcde
+        - atuin
         - cabextract
-        - cd-discid
-        - cdparanoia
-        - flac
         - git
         - ImageMagick
-        - libdiscid
-        - ncmpcpp
-        - mpdris2
-        - opus-tools
+        - neovim
         - p7zip
         - papirus-icon-theme
         - stow
+        - ripgrep
         - unrar
         - unzip
-        - vorbis-tools
         - yaru-icon-theme
+        - zoxide
     remove:
       packages:
         - firefox
         - firefox-langpacks
-
-  - type: dnf
-    repos:
-      nonfree: rpmfusion
-    install:
-      packages:
-        - lame
-        - mpd
 
   - type: fonts
     fonts:
@@ -60,4 +47,4 @@ modules:
           - io.github.diegopvlk.Cine     # Cine
           - com.ranfdev.DistroShelf      # DistroShelf
           - com.github.tchx84.Flatseal   # Flatseal
-          - org.mozilla.firefox           # Firefox
+          - app.zen_browser.zen          # Zen Browser
