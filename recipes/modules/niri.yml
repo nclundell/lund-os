@@ -11,7 +11,6 @@ modules:
     install:
       packages:
         - cava
-        - cliphist
         - niri
         - wl-clipboard
         - wl-mirror

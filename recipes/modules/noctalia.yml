@@ -9,8 +9,9 @@ repos:
     - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 install:
   packages:
-    - noctalia-shell
+    - cliphist
     - ddcutil
     - ghostty
     - matugen
+    - noctalia-shell
     - wlsunset
