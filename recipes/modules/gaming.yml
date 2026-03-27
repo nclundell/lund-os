@@ -9,6 +9,7 @@ repos:
 install:
   packages:
     - steam
+    - steam-devices
     - gamescope
     - mangohud
     - gamemode
