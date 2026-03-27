@@ -4,8 +4,6 @@
 # Steam and universal gaming packages
 
 type: dnf
-repos:
-  nonfree: rpmfusion
 install:
   packages:
     - gamemode
