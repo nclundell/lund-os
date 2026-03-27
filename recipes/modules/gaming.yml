@@ -8,11 +8,9 @@ repos:
   nonfree: rpmfusion
 install:
   packages:
-    - steam
-    - steam-devices
+    - gamemode
     - gamescope
     - mangohud
-    - gamemode
+    - steam
+    - steam-devices
     - vulkan-loader
-    - vkBasalt
-    - libxcrypt-compat
