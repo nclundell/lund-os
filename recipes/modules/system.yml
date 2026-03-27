@@ -19,8 +19,6 @@ modules:
         destination: /usr/lib
       - source: share
         destination: /usr/share
-      - source: etc/skel
-        destination: /etc/skel
 
   - type: containerfile
     snippets:
