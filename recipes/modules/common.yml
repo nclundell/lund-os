@@ -13,6 +13,7 @@ modules:
         - papirus-icon-theme
         - stow
         - ripgrep
+        - steam-devices
         - unrar
         - unzip
         - yaru-icon-theme
@@ -36,7 +37,7 @@ modules:
 
   - type: default-flatpaks
     configurations:
-      - scope: user
+      - scope: system
         notify: false
         repo:
           title: Flathub

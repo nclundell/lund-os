@@ -27,7 +27,7 @@ modules:
   # GNOME-related Flatpak applications
   - type: default-flatpaks
     configurations:
-      - scope: user
+      - scope: system
         notify: false
         repo:
           title: Flathub
