@@ -8,10 +8,6 @@ modules:
       packages:
         - gnome-menus
         - lm_sensors
-        - sushi
-    remove:
-      packages:
-        - gnome-software
 
   # Module: GNOME Extensions
   # GNOME Shell extensions to install
@@ -37,9 +33,13 @@ modules:
           title: Flathub
         install:
           # Official Apps
+          - org.gnome.baobab                     # Disk Usage Analyzer
+          - org.gnome.Calendar                   # Calendar
+          - org.gnome.Calculator                 # Calculator
           - org.gnome.Loupe                      # Image Viewer
           - org.gnome.Papers                     # Papers Document Viewer
           - org.gnome.SimpleScan                 # Scanner
+          - org.gnome.TextEditor                 # Text Editor
           - org.gnome.Weather                    # Weather
           # Unofficial Apps
           - com.mattjakeman.ExtensionManager     # Extension Manager

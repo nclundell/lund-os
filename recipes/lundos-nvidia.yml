@@ -8,6 +8,7 @@ modules:
   - from-file: modules/common.yml
   - from-file: modules/gnome.yml
   - from-file: modules/niri.yml
+  - from-file: modules/noctalia.yml
   - from-file: modules/gaming.yml
   - from-file: modules/media.yml
   - from-file: modules/system.yml

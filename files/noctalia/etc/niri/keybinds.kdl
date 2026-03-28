@@ -1,0 +1,175 @@
+binds {
+  // === System & Overview ===
+  Mod+Tab repeat=false hotkey-overlay-title="Overview" { toggle-overview; }
+  Mod+Shift+Slash repeat=false hotkey-overlay-title="Show Hotkey Overlay" { show-hotkey-overlay; }
+
+  // === Base Application Launchers ===
+  Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+
+  // === Noctalia Launchers & Search ===
+  Mod+Space hotkey-overlay-title="Application Launcher" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle";
+  }
+  Mod+Ctrl+Space hotkey-overlay-title="Clipboard History" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard";
+  }
+  Mod+Alt+Space hotkey-overlay-title="Command Launcher" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "command";
+  }
+  Mod+Shift+Space hotkey-overlay-title="Window Switcher" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "windows";
+  }
+  Mod+E hotkey-overlay-title="Emoji Picker" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji";
+  }
+
+  // === Shell Panels ===
+  Mod+Comma hotkey-overlay-title="Settings" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle";
+  }
+  Mod+Period hotkey-overlay-title="Control Center" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle";
+  }
+  Mod+N hotkey-overlay-title="Notification Center" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory";
+  }
+  Mod+Shift+N hotkey-overlay-title="Do Not Disturb" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleDND";
+  }
+  Mod+M hotkey-overlay-title="Media Panel" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "toggle";
+  }
+  Mod+Shift+M hotkey-overlay-title="System Monitor" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "systemMonitor" "toggle";
+  }
+  Mod+X hotkey-overlay-title="Session Menu" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle";
+  }
+  Mod+Y hotkey-overlay-title="Wallpaper Browser" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle";
+  }
+  Mod+Shift+Y hotkey-overlay-title="Random Wallpaper" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "random" "";
+  }
+  Mod+C hotkey-overlay-title="Calendar" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "calendar" "toggle";
+  }
+  Mod+W hotkey-overlay-title="Network Panel" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "network" "togglePanel";
+  }
+  Mod+Shift+W hotkey-overlay-title="Bluetooth Panel" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "bluetooth" "togglePanel";
+  }
+  Mod+B hotkey-overlay-title="Battery Panel" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "battery" "togglePanel";
+  }
+
+  // === Audio Controls ===
+  XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume Up" {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0";
+  }
+  XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume Down" {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
+  }
+  XF86AudioMute allow-when-locked=true hotkey-overlay-title="Toggle Mute" {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+  }
+  XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Toggle Microphone Mute" {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+  }
+
+  // === Brightness Controls ===
+  XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness Up" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase";
+  }
+  XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness Down" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease";
+  }
+
+  // === Media Controls ===
+  XF86AudioPause allow-when-locked=true hotkey-overlay-title="Media Play/Pause" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause";
+  }
+  XF86AudioPlay allow-when-locked=true hotkey-overlay-title="Media Play/Pause" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "playPause";
+  }
+  XF86AudioPrev allow-when-locked=true hotkey-overlay-title="Previous Track" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous";
+  }
+  XF86AudioNext allow-when-locked=true hotkey-overlay-title="Next Track" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next";
+  }
+
+  // === Window Management ===
+  Mod+Q repeat=false hotkey-overlay-title="Close Window" { close-window; }
+  Mod+Shift+F hotkey-overlay-title="Fullscreen Window" { fullscreen-window; }
+  Mod+Shift+T hotkey-overlay-title="Toggle Floating" { toggle-window-floating; }
+  Mod+Shift+V hotkey-overlay-title="Toggle Float/Tiling Focus" { switch-focus-between-floating-and-tiling; }
+
+  // === Focus Navigation ===
+  Mod+Home hotkey-overlay-title="Focus First Column" { focus-column-first; }
+  Mod+End hotkey-overlay-title="Focus Last Column" { focus-column-last; }
+  Mod+H hotkey-overlay-title="Focus Column Left" { focus-column-left; }
+  Mod+J hotkey-overlay-title="Focus Down" { focus-window-or-workspace-down; }
+  Mod+K hotkey-overlay-title="Focus Up" { focus-window-or-workspace-up; }
+  Mod+L hotkey-overlay-title="Focus Column Right" { focus-column-right; }
+  Mod+Left hotkey-overlay-title="Focus Column Left" { focus-column-left; }
+  Mod+Down hotkey-overlay-title="Focus Down" { focus-window-or-workspace-down; }
+  Mod+Up hotkey-overlay-title="Focus Up" { focus-window-or-workspace-up; }
+  Mod+Right hotkey-overlay-title="Focus Column Right" { focus-column-right; }
+
+  // === Window Movement ===
+  Mod+Ctrl+J hotkey-overlay-title="Move Column to Workspace Down" { move-column-to-workspace-down; }
+  Mod+Ctrl+K hotkey-overlay-title="Move Column to Workspace Up" { move-column-to-workspace-up; }
+  Mod+Shift+Home hotkey-overlay-title="Move Column to First" { move-column-to-first; }
+  Mod+Shift+End hotkey-overlay-title="Move Column to Last" { move-column-to-last; }
+  Mod+Shift+H hotkey-overlay-title="Move Column Left" { move-column-left; }
+  Mod+Shift+J hotkey-overlay-title="Move Window Down" { move-window-down; }
+  Mod+Shift+K hotkey-overlay-title="Move Window Up" { move-window-up; }
+  Mod+Shift+L hotkey-overlay-title="Move Column Right" { move-column-right; }
+  Mod+Shift+Left hotkey-overlay-title="Move Column Left" { move-column-left; }
+  Mod+Shift+Down hotkey-overlay-title="Move Window Down" { move-window-down; }
+  Mod+Shift+Up hotkey-overlay-title="Move Window Up" { move-window-up; }
+  Mod+Shift+Right hotkey-overlay-title="Move Column Right" { move-column-right; }
+
+  // === Mouse Wheel Navigation ===
+  Mod+WheelScrollDown cooldown-ms=150 hotkey-overlay-title="Focus Workspace Down" { focus-workspace-down; }
+  Mod+WheelScrollUp cooldown-ms=150 hotkey-overlay-title="Focus Workspace Up" { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 hotkey-overlay-title="Move Column to Workspace Down" { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp cooldown-ms=150 hotkey-overlay-title="Move Column to Workspace Up" { move-column-to-workspace-up; }
+  Mod+WheelScrollRight hotkey-overlay-title="Focus Column Right" { focus-column-right; }
+  Mod+WheelScrollLeft hotkey-overlay-title="Focus Column Left" { focus-column-left; }
+  Mod+Ctrl+WheelScrollRight hotkey-overlay-title="Move Column Right" { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft hotkey-overlay-title="Move Column Left" { move-column-left; }
+  Mod+Shift+WheelScrollDown hotkey-overlay-title="Focus Column Right" { focus-column-right; }
+  Mod+Shift+WheelScrollUp hotkey-overlay-title="Focus Column Left" { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown hotkey-overlay-title="Move Column Right" { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp hotkey-overlay-title="Move Column Left" { move-column-left; }
+
+  // === Sizing & Layout ===
+  Mod+R hotkey-overlay-title="Cycle Column Width" { switch-preset-column-width; }
+  Mod+Alt+R hotkey-overlay-title="Cycle Window Height" { switch-preset-window-height; }
+  Mod+Minus hotkey-overlay-title="Decrease Column Width" { set-column-width "-10%"; }
+  Mod+Equal hotkey-overlay-title="Increase Column Width" { set-column-width "+10%"; }
+  Mod+Alt+Minus hotkey-overlay-title="Decrease Window Height" { set-window-height "-10%"; }
+  Mod+Alt+Equal hotkey-overlay-title="Increase Window Height" { set-window-height "+10%"; }
+
+  // === Screenshots ===
+  Mod+P hotkey-overlay-title="Screenshot" { screenshot; }
+  Mod+Alt+P hotkey-overlay-title="Screenshot Window" { screenshot-window; }
+  Mod+Shift+P hotkey-overlay-title="Screenshot Screen" { screenshot-screen; }
+
+  // === Noctalia Shell Toggles ===
+  Mod+Ctrl+B hotkey-overlay-title="Toggle Bar" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "bar" "toggle";
+  }
+  Mod+Ctrl+D hotkey-overlay-title="Toggle Dark Mode" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "darkMode" "toggle";
+  }
+  Mod+Ctrl+I hotkey-overlay-title="Toggle Idle Inhibitor" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "idleInhibitor" "toggle";
+  }
+  Mod+Ctrl+N hotkey-overlay-title="Toggle Night Light" {
+    spawn "qs" "-c" "noctalia-shell" "ipc" "call" "nightLight" "toggle";
+  }
+}

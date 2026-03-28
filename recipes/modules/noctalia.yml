@@ -1,5 +1,9 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
+# Noctalia shell module
+# Installs shell packages and overrides /etc/niri fragments provided by modules/niri.yml.
+# Include after modules/niri.yml, and do not combine with modules/dms.yml in the same recipe.
+
 modules:
   - type: dnf
     repos:
@@ -8,12 +12,19 @@ modules:
       cleanup: true
     install:
       packages:
+        - cava
         - cliphist
         - ddcutil
         - ghostty
         - matugen
         - noctalia-shell
         - wlsunset
+    remove:
+      packages:
+        - alacritty
+        - fuzzel
+        - swaylock
+        - waybar
 
   - type: files
     files:

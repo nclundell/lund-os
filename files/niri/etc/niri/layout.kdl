@@ -1,0 +1,36 @@
+layout {
+  gaps 10
+
+  background-color "transparent"
+
+  center-focused-column "always"
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.66667
+    proportion 1.0
+  }
+
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.66667
+    proportion 1.0
+  }
+
+  default-column-width { proportion 0.66667; }
+
+  border {
+    off
+  }
+
+  focus-ring {
+    off
+  }
+
+  shadow {
+    softness 30
+    spread 5
+    offset x=0 y=5
+    color "#0007"
+  }
+}

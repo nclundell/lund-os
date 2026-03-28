@@ -1,7 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 # Module: Niri
-# Niri window manager and related packages
+# Niri window manager and shared /etc/niri fragment defaults.
+# Shell selection is recipe-level: include exactly one shell module after this one.
 
 modules:
   - type: dnf
@@ -10,7 +11,6 @@ modules:
         - yalter/niri
     install:
       packages:
-        - cava
         - niri
         - wl-clipboard
         - wl-mirror
@@ -20,5 +20,3 @@ modules:
     files:
       - source: niri
         destination: /
-
-  - from-file: modules/noctalia.yml

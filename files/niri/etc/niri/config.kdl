@@ -1,0 +1,14 @@
+// Niri system-wide configuration
+// Shell modules override individual section files in /etc/niri (for example keybinds.kdl).
+// Only one shell module should supply overrides in a given image.
+// Users can replace this entirely with ~/.config/niri/config.kdl if desired.
+
+include "environment.kdl"
+include "cursor.kdl"
+include "gestures.kdl"
+include "screenshot-path.kdl"
+include "keybinds.kdl"
+include "layout.kdl"
+include "outputs.kdl"
+include "layer-rules.kdl"
+include "window-rules.kdl"
