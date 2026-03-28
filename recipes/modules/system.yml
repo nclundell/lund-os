@@ -17,8 +17,6 @@ modules:
         destination: /etc
       - source: lib
         destination: /usr/lib
-      - source: share
-        destination: /usr/share
 
   - type: containerfile
     snippets:
