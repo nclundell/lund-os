@@ -1,18 +1,21 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
-# Module: Noctalia
-# Noctalia Shell and related packages
+modules:
+  - type: dnf
+    repos:
+      files:
+        - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+      cleanup: true
+    install:
+      packages:
+        - cliphist
+        - ddcutil
+        - ghostty
+        - matugen
+        - noctalia-shell
+        - wlsunset
 
-type: dnf
-repos:
-  files:
-    - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-  cleanup: true
-install:
-  packages:
-    - cliphist
-    - ddcutil
-    - ghostty
-    - matugen
-    - noctalia-shell
-    - wlsunset
+  - type: files
+    files:
+      - source: noctalia
+        destination: /

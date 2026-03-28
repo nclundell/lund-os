@@ -1,6 +1,5 @@
-// Niri system-wide configuration (merged)
-// To override, copy this file to ~/.config/niri/config.kdl and edit as needed.
-// Each section is clearly marked for convenience.
+// Shared Niri base configuration
+// Shell modules install /etc/niri/config.kdl and include this file.
 
 // =========================
 // Environment Variables
@@ -40,25 +39,9 @@ binds {
   Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
 
   // === Application Launchers ===
-  Mod+T hotkey-overlay-title="Open Terminal"        { spawn "ghostty"; }
+  Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
 
-  Mod+Space hotkey-overlay-title="Application Launcher" {
-      spawn "dms" "ipc" "call" "spotlight" "toggle";
-  }
-  Mod+M hotkey-overlay-title="Task Manager" {
-      spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
-  }
-  Mod+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
-  Mod+Comma hotkey-overlay-title="Settings" {
-      spawn "dms" "ipc" "call" "settings" "focusOrToggle";
-  }
-  Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-      spawn "dms" "ipc" "call" "dankdash" "wallpaper";
-  }
-  Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-  Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
-
-  // === Auio Controls ===
+  // === Audio Controls ===
   XF86AudioRaiseVolume allow-when-locked=true {
     spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0";
   }
@@ -72,31 +55,8 @@ binds {
     spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
   }
 
-  // === Brightness Controls ===
-  XF86MonBrightnessUp allow-when-locked=true {
-     spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
-  }
-  XF86MonBrightnessDown allow-when-locked=true {
-     spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
-  }
-
-  // === Media Controls ===
-  XF86AudioPause allow-when-locked=true {
-      spawn "dms" "ipc" "call" "mpris" "playPause";
-  }
-  XF86AudioPlay allow-when-locked=true {
-      spawn "dms" "ipc" "call" "mpris" "playPause";
-  }
-  XF86AudioPrev allow-when-locked=true {
-      spawn "dms" "ipc" "call" "mpris" "previous";
-  }
-  XF86AudioNext allow-when-locked=true {
-      spawn "dms" "ipc" "call" "mpris" "next";
-  }
-
   // === Window Management ===
   Mod+Q repeat=false { close-window; }
-  // Mod+F { maximize-column; }
   Mod+Shift+F { fullscreen-window; }
   Mod+Shift+T { toggle-window-floating; }
   Mod+Shift+V { switch-focus-between-floating-and-tiling; }
@@ -150,14 +110,6 @@ binds {
   Mod+Equal { set-column-width "+10%"; }
   Mod+Alt+Minus { set-window-height "-10%"; }
   Mod+Alt+Equal { set-window-height "+10%"; }
-}
-
-// =========================
-// Layer Rules
-// =========================
-layer-rule {
-    match namespace="dms:blurwallpaper"
-    place-within-backdrop true
 }
 
 // =========================
@@ -220,7 +172,6 @@ binds {
 // =========================
 // Window Rules
 // =========================
-/*======== General Rules ========*/
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
@@ -229,16 +180,6 @@ window-rule {
 window-rule {
     match is-active=false
     opacity 0.9
-}
-
-/*======== Program Rules ========*/
-window-rule {
-    match title="polkit-auth-popup"
-    default-column-width { fixed 600; }
-    default-window-height { fixed 250; }
-    open-floating true
-    open-focused true
-    
 }
 
 window-rule {
@@ -252,18 +193,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id="imv"
-    open-floating true
-    default-column-width {} 
-    default-window-height {}
-    draw-border-with-background true
-}
-
-window-rule {
     match app-id=r#"^gnome-control-center$"#
     match app-id=r#"^pavucontrol$"#
     match app-id=r#"^nm-connection-editor$"#
     default-column-width { proportion 0.5; }
     open-floating false
 }
-

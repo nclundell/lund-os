@@ -1,0 +1,111 @@
+// DMS system-wide Niri configuration
+// Installed by the DMS module.
+// Add user-specific overrides in ~/.config/niri/config.kdl if needed.
+
+include "base-config.kdl"
+
+// =========================
+// DMS Layer Rules
+// =========================
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
+}
+
+// =========================
+// DMS IPC Integration
+// =========================
+// DMS IPC is exposed via the dms CLI:
+//   dms ipc call <target> <function> [args...]
+
+binds {
+  // === Launchers & Popouts ===
+  Mod+Space hotkey-overlay-title="Application Launcher" {
+    spawn "dms" "ipc" "call" "spotlight" "toggle";
+  }
+  Mod+Ctrl+Space hotkey-overlay-title="Clipboard History" {
+    spawn "dms" "ipc" "call" "clipboard" "toggle";
+  }
+  Mod+M hotkey-overlay-title="Task Manager" {
+    spawn "dms" "ipc" "call" "processlist" "toggle";
+  }
+  Mod+X hotkey-overlay-title="Power Menu" {
+    spawn "dms" "ipc" "call" "powermenu" "toggle";
+  }
+  Mod+Comma hotkey-overlay-title="Settings" {
+    spawn "dms" "ipc" "call" "settings" "toggle";
+  }
+  Mod+Period hotkey-overlay-title="Control Center" {
+    spawn "dms" "ipc" "call" "control-center" "toggle";
+  }
+  Mod+N hotkey-overlay-title="Notification Center" {
+    spawn "dms" "ipc" "call" "notifications" "toggle";
+  }
+  Mod+Shift+N hotkey-overlay-title="Notepad" {
+    spawn "dms" "ipc" "call" "notepad" "toggle";
+  }
+  Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+    spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+  }
+
+  // === Dashboard ===
+  Mod+Shift+O hotkey-overlay-title="Dashboard Overview" {
+    spawn "dms" "ipc" "call" "dash" "toggle" "overview";
+  }
+  Mod+Shift+U hotkey-overlay-title="Dashboard Media" {
+    spawn "dms" "ipc" "call" "dash" "toggle" "media";
+  }
+  Mod+Shift+W hotkey-overlay-title="Dashboard Weather" {
+    spawn "dms" "ipc" "call" "dash" "toggle" "weather";
+  }
+
+  // === Shell Toggles ===
+  Mod+Ctrl+B hotkey-overlay-title="Toggle Bar" {
+    spawn "dms" "ipc" "call" "bar" "toggle";
+  }
+  Mod+Ctrl+D hotkey-overlay-title="Toggle Theme" {
+    spawn "dms" "ipc" "call" "theme" "toggle";
+  }
+  Mod+Ctrl+I hotkey-overlay-title="Toggle Idle Inhibitor" {
+    spawn "dms" "ipc" "call" "inhibit" "toggle";
+  }
+  Mod+Ctrl+N hotkey-overlay-title="Toggle Night Mode" {
+    spawn "dms" "ipc" "call" "night" "toggle";
+  }
+
+  // === DMS Audio Controls ===
+  XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume Up" {
+    spawn "dms" "ipc" "call" "audio" "increment" "5";
+  }
+  XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume Down" {
+    spawn "dms" "ipc" "call" "audio" "decrement" "5";
+  }
+  XF86AudioMute allow-when-locked=true hotkey-overlay-title="Toggle Mute" {
+    spawn "dms" "ipc" "call" "audio" "mute";
+  }
+  XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Toggle Microphone Mute" {
+    spawn "dms" "ipc" "call" "audio" "micmute";
+  }
+
+  // === DMS Brightness Controls ===
+  XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness Up" {
+    spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+  }
+  XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness Down" {
+    spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+  }
+
+  // === DMS Media Controls ===
+  XF86AudioPause allow-when-locked=true hotkey-overlay-title="Media Play/Pause" {
+    spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPlay allow-when-locked=true hotkey-overlay-title="Media Play/Pause" {
+    spawn "dms" "ipc" "call" "mpris" "playPause";
+  }
+  XF86AudioPrev allow-when-locked=true hotkey-overlay-title="Previous Track" {
+    spawn "dms" "ipc" "call" "mpris" "previous";
+  }
+  XF86AudioNext allow-when-locked=true hotkey-overlay-title="Next Track" {
+    spawn "dms" "ipc" "call" "mpris" "next";
+  }
+}

@@ -1,17 +1,20 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/modules/dnf-latest.json
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
-# Module: DMS
-# Dank Material Shell and related packages
+modules:
+  - type: dnf
+    repos:
+      copr:
+        - avengemedia/dms
+        - avengemedia/danklinux
+    install:
+      packages:
+        - cliphist
+        - dms
+        - ghostty
+        - quickshell
+        - material-symbols-fonts
 
-type: dnf
-repos:
-  copr:
-    - avengemedia/dms
-    - avengemedia/danklinux
-install:
-  packages:
-    - cliphist
-    - dms
-    - ghostty
-    - quickshell
-    - material-symbols-fonts
+  - type: files
+    files:
+      - source: dms
+        destination: /

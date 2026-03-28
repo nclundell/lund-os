@@ -16,4 +16,9 @@ modules:
         - wl-mirror
         - wlr-randr
 
+  - type: files
+    files:
+      - source: niri
+        destination: /
+
   - from-file: modules/noctalia.yml
