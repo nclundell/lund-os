@@ -12,3 +12,15 @@ include "layout.kdl"
 include "outputs.kdl"
 include "layer-rules.kdl"
 include "window-rules.kdl"
+
+prefer-no-csd
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
+}
