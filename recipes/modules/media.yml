@@ -4,8 +4,7 @@ modules:
   # HandBrake, libdvdcss, and lame from negativo17 multimedia
   - type: dnf
     repos:
-      files:
-        - https://negativo17.org/repos/fedora-multimedia.repo
+      nonfree: negativo17
       cleanup: true
     install:
       packages:
@@ -18,6 +17,7 @@ modules:
   - type: dnf
     repos:
       nonfree: rpmfusion
+      cleanup: true
     install:
       packages:
         - mpd
