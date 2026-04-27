@@ -15,8 +15,6 @@ modules:
     files:
       - source: etc 
         destination: /etc
-      - source: lib
-        destination: /usr/lib
 
   - type: containerfile
     snippets:

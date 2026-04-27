@@ -1,8 +1,0 @@
-[Unit]
-Description=Dank Material Shell
-After=niri.service
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/dms run
-Restart=on-failure

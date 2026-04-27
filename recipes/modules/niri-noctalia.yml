@@ -1,8 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
-# Noctalia shell module
-# Installs shell packages and overrides /etc/niri fragments provided by modules/niri.yml.
-# Include after modules/niri.yml, and do not combine with modules/dms.yml in the same recipe.
+# Module: niri-noctalia
+# Niri wayland compositor with the noctalia shell
 
 modules:
   - type: dnf
@@ -17,7 +16,11 @@ modules:
         - ddcutil
         - ghostty
         - matugen
+        - niri
         - noctalia-shell
+        - wl-clipboard
+        - wl-mirror
+        - wlr-randr
         - wlsunset
     remove:
       packages:
@@ -28,5 +31,5 @@ modules:
 
   - type: files
     files:
-      - source: noctalia
+      - source: niri-noctalia
         destination: /
