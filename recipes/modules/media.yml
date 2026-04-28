@@ -23,7 +23,6 @@ modules:
         - mpd
         - mpdris2
         - ncmpcpp
-        - pipewire-codec-aptx
 
   # Fedora Standard Repo Packages
   - type: dnf
