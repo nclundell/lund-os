@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
-  # HandBrake, libdvdcss, and lame from negativo17 multimedia
+  # Negativo17 Packages
   - type: dnf
     repos:
       nonfree: negativo17
@@ -13,7 +13,7 @@ modules:
         - libdvdcss
         - lame
 
-  # mpd from RPM Fusion free
+  # RPM Fusion Packages
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -23,8 +23,9 @@ modules:
         - mpd
         - mpdris2
         - ncmpcpp
+        - pipewire-codec-aptx
 
-  # CD ripping tools from standard Fedora
+  # Fedora Standard Repo Packages
   - type: dnf
     install:
       packages:
@@ -33,5 +34,6 @@ modules:
         - flac
         - libcdio-paranoia
         - libdiscid
+        - libldac
         - opus-tools
         - vorbis-tools
