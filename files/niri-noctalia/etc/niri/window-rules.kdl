@@ -10,9 +10,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-  // match app-id=r#"^org\.gnome\.Nautilus$"#
   match app-id=r#"^org\.gnome\.NautilusPreviewer$"#
-  // match app-id=r#"^steam$"#
   match app-id=r#"^xdg-desktop-portal$"#
   open-floating true
 }
@@ -23,9 +21,4 @@ window-rule {
   match app-id=r#"^nm-connection-editor$"#
   default-column-width { proportion 0.5; }
   open-floating false
-}
-
-window-rule {
-  match app-id=r#"^steam_app_\d+"#
-  open-fullscreen true
 }
