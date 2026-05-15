@@ -19,7 +19,8 @@ modules:
   - type: containerfile
     snippets:
       - COPY --link files/usr/local/bin/* /usr/local/bin/
-      - RUN chmod +x /usr/local/bin/extract
+      - RUN chmod 755 /usr/local/bin/build-makemkv
+      - RUN chmod 755 /usr/local/bin/extract
 
   - type: os-release
     properties:
