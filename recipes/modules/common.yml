@@ -41,9 +41,10 @@ modules:
         repo:
           title: Flathub
         install:
-          - com.usebottles.bottles              # Bottles
-          - com.brave.Browser                   # Brave Browser
+          - io.github.kolunmi.Bazaar             # Bazaar Software Store
+          - com.usebottles.bottles               # Bottles
+          - com.brave.Browser                    # Brave Browser
           - io.github.celluloid_player.Celluloid # Celluloid
-          - com.ranfdev.DistroShelf             # DistroShelf
-          - com.github.tchx84.Flatseal          # Flatseal
-          - app.zen_browser.zen                 # Zen Browser
+          - com.ranfdev.DistroShelf              # DistroShelf
+          - com.github.tchx84.Flatseal           # Flatseal
+          - app.zen_browser.zen                  # Zen Browser

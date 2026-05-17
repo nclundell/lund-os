@@ -8,6 +8,9 @@ modules:
       packages:
         - gnome-menus
         - lm_sensors
+    remove:
+      packages:
+        - gnome-software
 
   # Module: GNOME Extensions
   # GNOME Shell extensions to install

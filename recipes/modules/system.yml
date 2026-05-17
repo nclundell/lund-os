@@ -21,6 +21,7 @@ modules:
       - COPY --link files/usr/local/bin/* /usr/local/bin/
       - RUN chmod 755 /usr/local/bin/build-makemkv
       - RUN chmod 755 /usr/local/bin/extract
+      - RUN chmod 755 /usr/local/bin/uninstall-makemkv
 
   - type: os-release
     properties:
