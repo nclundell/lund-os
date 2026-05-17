@@ -1,70 +1,141 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
 MAKEMKV_VERSION="${1:-1.17.6}"
-INSTALL_PREFIX="/usr/local"
-CONTAINER_NAME="makemkv-build-$$"
+CONTAINER_NAME="${CONTAINER_NAME:-MakeMKV}"
+CONTAINER_IMAGE="${CONTAINER_IMAGE:-debian:12}"
+INSTALL_PREFIX="${INSTALL_PREFIX:-${HOME}/.local/share/makemkv-distrobox}"
 
-echo "Building MakeMKV ${MAKEMKV_VERSION}..."
+report_failure() {
+  local exit_code=$?
+  local failed_command=${2//$'\n'/ }
+  failed_command=${failed_command//$'\t'/ }
+  if ((${#failed_command} > 200)); then
+    failed_command="${failed_command:0:197}..."
+  fi
+  echo "build-makemkv failed at line $1: ${failed_command} (exit ${exit_code})" >&2
+}
 
-# Clean up container on exit
+require_command() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "build-makemkv requires '$1', but it is not installed or not in PATH." >&2
+    exit 127
+  fi
+}
+
+run_in_box() {
+  distrobox-enter --name "${CONTAINER_NAME}" -- "$@"
+}
+
+container_exists() {
+  distrobox-enter --name "${CONTAINER_NAME}" -- true >/dev/null 2>&1
+}
+
+trap 'report_failure ${LINENO} "$BASH_COMMAND"' ERR
+
+require_command podman
+require_command distrobox-create
+require_command distrobox-enter
+
+echo "Setting up MakeMKV ${MAKEMKV_VERSION} in Distrobox '${CONTAINER_NAME}'..."
+echo "Using image ${CONTAINER_IMAGE}..."
+
+if ! container_exists; then
+  echo "Creating Distrobox '${CONTAINER_NAME}'..."
+  distrobox-create --yes --no-entry --image "${CONTAINER_IMAGE}" --name "${CONTAINER_NAME}"
+else
+  echo "Reusing existing Distrobox '${CONTAINER_NAME}'..."
+fi
+
+echo "Installing build dependencies in '${CONTAINER_NAME}'..."
+run_in_box bash -lc "sudo env DEBIAN_FRONTEND=noninteractive apt-get update && sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y autoconf automake build-essential curl file libavcodec-dev libavformat-dev libavutil-dev libexpat1-dev libssl-dev libtool make pkg-config qtbase5-dev zlib1g-dev"
+
+echo "Building and installing MakeMKV ${MAKEMKV_VERSION} in '${CONTAINER_NAME}'..."
+run_in_box bash -s -- "${MAKEMKV_VERSION}" "${INSTALL_PREFIX}" <<'EOF'
+set -Eeuo pipefail
+
+trap 'exit_code=$?; echo "container build failed at line ${LINENO}: $BASH_COMMAND (exit ${exit_code})" >&2' ERR
+
+MAKEMKV_VERSION="$1"
+INSTALL_PREFIX="$2"
+BUILD_DIR="$(mktemp -d)"
+FAKEBIN_DIR="${BUILD_DIR}/fakebin"
+
 cleanup() {
-  podman rm -f "${CONTAINER_NAME}" 2>/dev/null || true
+  rm -rf "${BUILD_DIR}"
 }
 trap cleanup EXIT
 
-# Run build in a temporary Fedora container with /usr/local bind-mounted from the host
-podman run --name "${CONTAINER_NAME}" \
-  --volume "${INSTALL_PREFIX}:${INSTALL_PREFIX}" \
-  --rm \
-  fedora:latest bash -euo pipefail -s << EOF
+mkdir -p "${FAKEBIN_DIR}"
+cat > "${FAKEBIN_DIR}/ldconfig" <<'FAKE_LDCONFIG'
+#!/bin/sh
+exit 0
+FAKE_LDCONFIG
+chmod +x "${FAKEBIN_DIR}/ldconfig"
 
-echo "Adding negativo17 multimedia repo for ffmpeg-devel..."
-dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+cd "${BUILD_DIR}"
 
-echo "Installing build dependencies..."
-dnf install -y \
-  autoconf \
-  automake \
-  ffmpeg-devel \
-  expat-devel \
-  gcc \
-  gcc-c++ \
-  libtool \
-  make \
-  openssl-devel \
-  qt5-qtbase-devel \
-  zlib-devel
-
-BUILD_DIR="\$(mktemp -d)"
-cd "\${BUILD_DIR}"
-
-echo "Downloading MakeMKV ${MAKEMKV_VERSION}..."
 curl -fsSL -o "makemkv-oss-${MAKEMKV_VERSION}.tar.gz" \
   "https://makemkv.com/download/old/makemkv-oss-${MAKEMKV_VERSION}.tar.gz"
 curl -fsSL -o "makemkv-bin-${MAKEMKV_VERSION}.tar.gz" \
   "https://makemkv.com/download/old/makemkv-bin-${MAKEMKV_VERSION}.tar.gz"
 
-echo "Extracting..."
 tar -xzf "makemkv-oss-${MAKEMKV_VERSION}.tar.gz"
 tar -xzf "makemkv-bin-${MAKEMKV_VERSION}.tar.gz"
 
-echo "Building makemkv-oss..."
 cd "makemkv-oss-${MAKEMKV_VERSION}"
 ./configure --prefix="${INSTALL_PREFIX}"
-make -j\$(nproc)
-make install
+make -j"$(nproc)"
+PATH="${FAKEBIN_DIR}:${PATH}" make install
 cd ..
 
-echo "Installing makemkv-bin..."
 cd "makemkv-bin-${MAKEMKV_VERSION}"
 mkdir -p tmp
-echo "yes" > tmp/eula_accepted
+printf 'yes\n' > tmp/eula_accepted
 make install PREFIX="${INSTALL_PREFIX}"
-cd ..
 
-echo "Cleaning up build directory..."
-rm -rf "\${BUILD_DIR}"
+cat > "${INSTALL_PREFIX}/bin/makemkv-gui" <<WRAPPER
+#!/usr/bin/env bash
+set -euo pipefail
+PREFIX="${INSTALL_PREFIX}"
+export PATH="\${PREFIX}/bin:\${PATH}"
+export LD_LIBRARY_PATH="\${PREFIX}/lib:\${LD_LIBRARY_PATH:-}"
+exec "\${PREFIX}/bin/makemkv" "\$@"
+WRAPPER
+chmod 755 "${INSTALL_PREFIX}/bin/makemkv-gui"
 
-echo "MakeMKV ${MAKEMKV_VERSION} installed successfully to ${INSTALL_PREFIX}."
+cat > "${INSTALL_PREFIX}/share/applications/makemkv.desktop" <<DESKTOP
+[Desktop Entry]
+Version=1.0
+Name=MakeMKV
+Comment=DVD and Blu-ray to MKV converter and network streamer
+Exec=${INSTALL_PREFIX}/bin/makemkv-gui
+Icon=makemkv
+Terminal=false
+Type=Application
+Categories=AudioVideo;Qt;
+DESKTOP
 EOF
+
+echo "Exporting MakeMKV GUI and makemkvcon..."
+run_in_box bash -s -- "${INSTALL_PREFIX}" <<'EOF'
+set -Eeuo pipefail
+
+INSTALL_PREFIX="$1"
+desktop_file="${INSTALL_PREFIX}/share/applications/makemkv.desktop"
+
+if [[ ! -f "${desktop_file}" ]]; then
+  echo "Could not find the MakeMKV desktop file to export." >&2
+  exit 1
+fi
+
+distrobox-export --app "${desktop_file}" --export-label none
+distrobox-export --bin "${INSTALL_PREFIX}/bin/makemkvcon" --export-path "${HOME}/.local/bin"
+EOF
+
+rm -f "${HOME}/.local/share/applications/${CONTAINER_NAME}.desktop"
+
+echo "MakeMKV ${MAKEMKV_VERSION} is ready in Distrobox '${CONTAINER_NAME}'."
+echo "GUI launcher exported from ${CONTAINER_NAME}."
+echo "Container install prefix: ${INSTALL_PREFIX}."
+echo "CLI exported to ${HOME}/.local/bin/makemkvcon."

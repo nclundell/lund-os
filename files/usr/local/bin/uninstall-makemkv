@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+CONTAINER_NAME="${CONTAINER_NAME:-MakeMKV}"
+INSTALL_PREFIX="${INSTALL_PREFIX:-${HOME}/.local/share/makemkv-distrobox}"
+
+if ! command -v distrobox-enter >/dev/null 2>&1 || ! command -v distrobox-rm >/dev/null 2>&1; then
+  echo "uninstall-makemkv requires distrobox, but it is not installed or not in PATH." >&2
+  exit 127
+fi
+
+distrobox-enter --name "${CONTAINER_NAME}" -- \
+  distrobox-export --app "${INSTALL_PREFIX}/share/applications/makemkv.desktop" --delete >/dev/null 2>&1 || true
+
+distrobox-enter --name "${CONTAINER_NAME}" -- \
+  distrobox-export --bin "${INSTALL_PREFIX}/bin/makemkvcon" --export-path "${HOME}/.local/bin" --delete >/dev/null 2>&1 || true
+
+distrobox-rm --force "${CONTAINER_NAME}" >/dev/null 2>&1 || true
+rm -f "${HOME}/.local/share/applications/${CONTAINER_NAME}.desktop"
+rm -rf "${INSTALL_PREFIX}"
+
+echo "MakeMKV Distrobox removed."
