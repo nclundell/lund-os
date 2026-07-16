@@ -30,6 +30,7 @@ modules:
       packages:
         - abcde
         - cd-discid
+        - ddrescue
         - flac
         - libcdio-paranoia
         - libdiscid
