@@ -11,7 +11,7 @@ There are three variants available:
 
 Uses [blue-build base images](https://github.com/blue-build/base-images) which include:
 - Distrobox, just, bootc
-- Codecs and multimedia support (via Negativo17)
+- Codecs and multimedia support
 - Hardware support (libcamera, nvtop, libratbag, etc.)
 - udev rules for peripherals
 - Automatic updates via bootc-fetch-apply-updates.timer
