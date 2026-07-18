@@ -4,5 +4,5 @@ After=niri.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/qs -c noctalia-shell
+ExecStart=/usr/bin/noctalia
 Restart=on-failure

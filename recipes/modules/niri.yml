@@ -6,8 +6,8 @@
 modules:
   - type: dnf
     repos:
-      files:
-        - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+      copr:
+        - scottames/ghostty
       cleanup: true
     install:
       packages:
@@ -18,7 +18,7 @@ modules:
         - ghostty
         - matugen
         - niri
-        - noctalia-shell
+        - noctalia
         - wl-clipboard
         - wl-mirror
         - wlr-randr
@@ -29,8 +29,3 @@ modules:
         - fuzzel
         - swaylock
         - waybar
-
-  - type: files
-    files:
-      - source: niri-noctalia
-        destination: /

@@ -4,35 +4,49 @@ modules:
   - type: dnf
     install:
       packages:
-        - atuin
+        - abcde
+        - autoconf
         - cabextract
+        - cd-discid
+        - curl
+        - ddrescue
+        - file
+        - flac
+        - gcc
+        - gcc-c++
         - git
+        - glibc-devel
         - ImageMagick
-        - neovim
+        - lame
+        - libcdio-paranoia
+        - libdiscid
+        - libdvdcss
+        - libffi-devel
+        - libldac
+        - libyaml-devel
+        - make
+        - mpd
+        - mpdris2
+        - ncmpcpp
+        - openssl-devel
+        - opus-tools
         - p7zip
         - papirus-icon-theme
-        - stow
-        - ripgrep
+        - patch
+        - pkgconf-pkg-config
+        - procps-ng
+        - readline-devel
+        - rust
+        - steam-devices
         - unrar
         - unzip
+        - vorbis-tools
         - yaru-icon-theme
-        - zoxide
+        - zlib-ng-compat-devel
     remove:
       packages:
         - firefox
         - firefox-langpacks
-
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - AdwaitaMono
-        # - CaskaydiaCove
-        - FiraCode
-        - Hack
-        - Inconsolata
-        - JetBrainsMono
-      google-fonts:
-        - Roboto
 
   - type: default-flatpaks
     configurations:
@@ -41,10 +55,8 @@ modules:
         repo:
           title: Flathub
         install:
-          - io.github.kolunmi.Bazaar             # Bazaar Software Store
-          - com.usebottles.bottles               # Bottles
           - com.brave.Browser                    # Brave Browser
           - io.github.celluloid_player.Celluloid # Celluloid
           - com.ranfdev.DistroShelf              # DistroShelf
           - com.github.tchx84.Flatseal           # Flatseal
-          - app.zen_browser.zen                  # Zen Browser
+          - io.github.flattool.Warehouse         # Warehouse
