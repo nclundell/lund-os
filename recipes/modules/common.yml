@@ -2,6 +2,18 @@
 
 modules:
   - type: dnf
+    repos:
+      nonfree: rpmfusion
+      cleanup: true
+    install:
+      packages:
+        - lame
+        - libdvdcss
+        - mpd
+        - mpdris2
+        - ncmpcpp
+
+  - type: dnf
     install:
       packages:
         - abcde
@@ -17,17 +29,12 @@ modules:
         - git
         - glibc-devel
         - ImageMagick
-        - lame
         - libcdio-paranoia
         - libdiscid
-        - libdvdcss
         - libffi-devel
         - libldac
         - libyaml-devel
         - make
-        - mpd
-        - mpdris2
-        - ncmpcpp
         - openssl-devel
         - opus-tools
         - p7zip
