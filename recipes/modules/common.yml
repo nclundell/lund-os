@@ -8,7 +8,6 @@ modules:
     install:
       packages:
         - lame
-        - libdvdcss
         - mpd
         - mpdris2
         - ncmpcpp
