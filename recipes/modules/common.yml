@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 
 modules:
+  # RPM Fusion
   - type: dnf
     repos:
       nonfree: rpmfusion
@@ -12,43 +13,52 @@ modules:
         - mpdris2
         - ncmpcpp
 
+  # Build Deps
+  - type: dnf
+    install:
+      packages:
+        - autoconf
+        - bzip2
+        - gcc
+        - gcc-c++
+        - make
+        - patch
+        - perl-FindBin
+        - pkgconf-pkg-config
+        - rust
+        - gdbm-devel
+        - glibc-devel
+        - libffi-devel
+        - libyaml-devel
+        - ncurses-devel
+        - openssl-devel
+        - readline-devel
+        - zlib-ng-compat-devel
+
   - type: dnf
     install:
       packages:
         - abcde
-        - autoconf
         - cabextract
         - cd-discid
         - curl
         - ddrescue
         - file
         - flac
-        - gcc
-        - gcc-c++
         - git
-        - glibc-devel
         - ImageMagick
         - libcdio-paranoia
         - libdiscid
-        - libffi-devel
         - libldac
-        - libyaml-devel
-        - make
-        - openssl-devel
         - opus-tools
         - p7zip
         - papirus-icon-theme
-        - patch
-        - pkgconf-pkg-config
         - procps-ng
-        - readline-devel
-        - rust
         - steam-devices
         - unrar
         - unzip
         - vorbis-tools
         - yaru-icon-theme
-        - zlib-ng-compat-devel
     remove:
       packages:
         - firefox
