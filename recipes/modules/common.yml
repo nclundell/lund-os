@@ -50,6 +50,7 @@ modules:
         - libcdio-paranoia
         - libdiscid
         - libldac
+        - mkvtoolnix
         - opus-tools
         - p7zip
         - papirus-icon-theme
