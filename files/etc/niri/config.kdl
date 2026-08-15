@@ -4,7 +4,6 @@
 include "environment.kdl"
 include "cursor.kdl"
 include "gestures.kdl"
-include "screenshot-path.kdl"
 include "keybinds.kdl"
 include "layout.kdl"
 include "outputs.kdl"
@@ -22,3 +21,5 @@ overview {
     off
   }
 }
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
